@@ -1,5 +1,5 @@
-// Fecha objetivo: 26 de junio de este año a las 11:11
-const targetDate = new Date(new Date().getFullYear(), 5, 26, 11, 11, 0);
+// Fecha objetivo: 26 de julio de este año a las 11:11
+const targetDate = new Date(new Date().getFullYear(), 6, 26, 11, 11, 0);
 
 const textContainer = document.getElementById("text-container");
 
