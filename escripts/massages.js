@@ -4,9 +4,10 @@ const targetDate = new Date(new Date().getFullYear(), 6, 26, 11, 11, 0);
 const textContainer = document.getElementById("text-container");
 
 const messages = [
-    "> Como humanos, la música nos transmite emociones",
-    "> y nos lleva a momentos de vida que quedan almacenados",
-    "> en nuestra memoria para siempre.",
+    "> Luz, viniste a alumbrarme, eres divina",
+    "> Supiste desarmarme, eres mía",
+    "> Y es lo que es, una vida no es suficiente",
+    "> Para estar junto a ti." , 
     ""
 ];
 
