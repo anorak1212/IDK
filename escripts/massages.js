@@ -17,7 +17,7 @@ function updateCountdownMessage() {
     const timeRemaining = targetDate - now;
 
     if (timeRemaining <= 0) {
-        messages[3] = "> File accessed successfully";
+        messages[4] = "> File accessed successfully";
         printLink();
         return;
     }
@@ -32,7 +32,7 @@ function updateCountdownMessage() {
 
 function printNextMessage() {
     if (index < messages.length) {
-        if (index === 3) {
+        if (index === 4) {
             const line = document.createElement("div");
             line.classList.add("line");
             line.textContent = messages[3];
@@ -40,7 +40,7 @@ function printNextMessage() {
 
             const interval = setInterval(() => {
                 updateCountdownMessage();
-                line.textContent = messages[3];
+                line.textContent = messages[4];
                 if (new Date() >= targetDate) {
                     clearInterval(interval);
                 }
