@@ -1,13 +1,16 @@
-// Fecha objetivo: 26 de julio de este año a las 11:11
+
 const targetDate = new Date(new Date().getFullYear(), 6, 26, 11, 11, 0);
 
 const textContainer = document.getElementById("text-container");
 
 const messages = [
-    "> Luz, viniste a alumbrarme, eres divina",
-    "> Supiste desarmarme, eres mía",
-    "> Y es lo que es, una vida no es suficiente",
-    "> Para estar junto a ti." , 
+    "> Nothing good ever comes easy",
+    "> I know times are rough",
+    "> But winners don't quit",
+    "> So don't you give up" ,
+    "> The sun'll come out",
+    "> But we've been struggling endless days",
+    "> Someday we'll find the love" ,  
     ""
 ];
 
@@ -17,7 +20,7 @@ function updateCountdownMessage() {
     const timeRemaining = targetDate - now;
 
     if (timeRemaining <= 0) {
-        messages[4] = "> File accessed successfully";
+        messages[7] = "> File accessed successfully";
         printLink();
         return;
     }
@@ -27,20 +30,20 @@ function updateCountdownMessage() {
     const minutes = Math.floor((timeRemaining / (1000 * 60)) % 60);
     const seconds = Math.floor((timeRemaining / 1000) % 60);
 
-    messages[4] = `> Access in ${days} days, ${hours} hours, ${minutes} minutes y ${seconds} seconds.`;
+    messages[7] = `> Access in ${days} days, ${hours} hours, ${minutes} minutes y ${seconds} seconds.`;
 }
 
 function printNextMessage() {
     if (index < messages.length) {
-        if (index === 4) {
+        if (index === 7) {
             const line = document.createElement("div");
             line.classList.add("line");
-            line.textContent = messages[3];
+            line.textContent = messages[7];
             textContainer.appendChild(line);
 
             const interval = setInterval(() => {
                 updateCountdownMessage();
-                line.textContent = messages[4];
+                line.textContent = messages[7];
                 if (new Date() >= targetDate) {
                     clearInterval(interval);
                 }
@@ -61,7 +64,7 @@ function printNextMessage() {
         line.addEventListener("animationend", () => {
             line.classList.add("typing-complete");
             index++;
-            printNextMessage();
+            printNextMessage();a
         });
     }
 }
