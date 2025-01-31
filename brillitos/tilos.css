@@ -30,10 +30,10 @@ html,body {
     animation: animacion 1.5s steps(25), transparent .5s step-end infinite alternate;
     white-space: nowrap;
     overflow: hidden;
-    color: #00ff00;
+    color: #04D9FF;
     text-shadow: 
-        0 0 79px #00ff00, 
-        0 0 80px #00ff00;
+        0 0 79px #04D9FF, 
+        0 0 80px #04D9FF;
 }
 
 @keyframes animacion {
@@ -73,12 +73,12 @@ html,body {
     width: 0;
     overflow: hidden;
     white-space: nowrap;
-    color: #00ff00; 
+    color: #04D9FF; 
     text-shadow: 
-        0 0 79px #00ff00, 
-        0 0 80px #00ff00; 
+        0 0 79px #04D9FF, 
+        0 0 80px #04D9FF; 
     font-size: 16px; 
-    border-right: 2px solid #00ff00;
+    border-right: 2px solid #04D9FF;
     animation: typing 3s steps(30) forwards, blink 0.5s step-end infinite alternate;
     animation-fill-mode: forwards; 
 }

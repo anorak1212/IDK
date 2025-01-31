@@ -4,13 +4,15 @@ const targetDate = new Date(new Date().getFullYear(), 6, 26, 11, 11, 0);
 const textContainer = document.getElementById("text-container");
 
 const messages = [
-    "> Nothing good ever comes easy",
-    "> I know times are rough",
-    "> But winners don't quit",
-    "> So don't you give up" ,
-    "> The sun'll come out",
-    "> But we've been struggling endless days",
-    "> Someday we'll find the love" ,  
+    "> So it's hard to find",
+    "> Someone with that kind of intensity",
+    "> You touched my hand I played it cool",
+    "> And you reached out your hand to me" ,
+    "> But if our paths never cross",
+    "> Well you know I'm sorry but",
+    "> If I live to see the seven wonders" , 
+    "> I'll make a path to the rainbow's end" , 
+    "> I'll never live to match the beauty again" , 
     ""
 ];
 
@@ -20,7 +22,7 @@ function updateCountdownMessage() {
     const timeRemaining = targetDate - now;
 
     if (timeRemaining <= 0) {
-        messages[7] = "> File accessed successfully";
+        messages[9] = "> File accessed successfully";
         printLink();
         return;
     }
@@ -30,20 +32,20 @@ function updateCountdownMessage() {
     const minutes = Math.floor((timeRemaining / (1000 * 60)) % 60);
     const seconds = Math.floor((timeRemaining / 1000) % 60);
 
-    messages[7] = `> Access in ${days} days, ${hours} hours, ${minutes} minutes y ${seconds} seconds.`;
+    messages[9] = `> Access in ${days} days, ${hours} hours, ${minutes} minutes y ${seconds} seconds.`;
 }
 
 function printNextMessage() {
     if (index < messages.length) {
-        if (index === 7) {
+        if (index === 9) {
             const line = document.createElement("div");
             line.classList.add("line");
-            line.textContent = messages[7];
+            line.textContent = messages[9];
             textContainer.appendChild(line);
 
             const interval = setInterval(() => {
                 updateCountdownMessage();
-                line.textContent = messages[7];
+                line.textContent = messages[9];
                 if (new Date() >= targetDate) {
                     clearInterval(interval);
                 }
@@ -74,11 +76,11 @@ function printLink() {
     link.href = "https://open.spotify.com/playlist/0VWAGDWCLErw9a7ZrmBR1X?si=oatWEnuNSgeZD6XnLfPkZA";
     link.textContent = "";
     link.target = "_blank"; 
-    link.style.color = "#00ff00"; 
-    link.style.textShadow = "0 0 79px #00ff00, 0 0 80px #00ff00"; 
+    link.style.color = "#04D9FF"; 
+    link.style.textShadow = "0 0 79px #04D9FF, 0 0 80px #04D9FF"; 
     link.style.whiteSpace = "nowrap";
     link.style.overflow = "hidden";
-    link.style.borderRight = "2px solid #00ff00";
+    link.style.borderRight = "2px solid #04D9FF";
     link.style.display = "inline-block";
     textContainer.appendChild(link);
 
