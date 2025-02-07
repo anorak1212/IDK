@@ -4,15 +4,15 @@ const targetDate = new Date(new Date().getFullYear(), 6, 26, 11, 11, 0);
 const textContainer = document.getElementById("text-container");
 
 const messages = [
-    "> So it's hard to find",
-    "> Someone with that kind of intensity",
-    "> You touched my hand I played it cool",
-    "> And you reached out your hand to me" ,
-    "> But if our paths never cross",
-    "> Well you know I'm sorry but",
-    "> If I live to see the seven wonders" , 
-    "> I'll make a path to the rainbow's end" , 
-    "> I'll never live to match the beauty again" , 
+    "> En tu planeta me quedé",
+    "> Fue por un tiempo y nunca fue mi plan",
+    "> Pero mi nave se averió",
+    "> Y ahora estoy perdido aquí" ,
+    "> En mañanas con tres soles",
+    "> Y múltiples visiones",
+    "> Montañas transparentes    " , 
+    "> Anemonas de luz" , 
+    "> Partículas de amor y recuerdos de ti" , 
     ""
 ];
 
