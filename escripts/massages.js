@@ -5,7 +5,7 @@ const textContainer = document.getElementById("text-container");
 const messages = [
     "> Mientras uno está vivo",
     "> Uno debe amar lo más que pueda",
-    "> https://maps.app.goo.gl/EmuGykronmMAk4YJ9",
+    "> https://maps.app.goo.gl/apuuikfHvswdCMTR6?g_st=ac",
     " ",
 ];
 
