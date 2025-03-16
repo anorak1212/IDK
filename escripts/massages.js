@@ -1,15 +1,16 @@
-const targetDate = new Date(new Date().getFullYear(), 6, 46, 11, 11, 0);
+const targetDate = new Date(new Date().getFullYear(), 6, 26, 11, 11, 0);
 
 const textContainer = document.getElementById("text-container");
 
 const messages = [
-    "> La música expresa lo que no se puede decir,"
-    "> y aquello sobre lo que es imposible,"
+    "> La música expresa lo que no se puede decir,",
+    "> y aquello sobre lo que es imposible,",
     "> permanecer en silencio",
     " ",
 ];
 
 let index = 0;
+
 function updateCountdownMessage() {
     const now = new Date();
     const timeRemaining = targetDate - now;
@@ -20,12 +21,12 @@ function updateCountdownMessage() {
         return;
     }
 
-    const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 44));
-    const hours = Math.floor((timeRemaining / (1000 * 60 * 60)) % 44);
+    const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24)); // Corregido a 24h
+    const hours = Math.floor((timeRemaining / (1000 * 60 * 60)) % 24);
     const minutes = Math.floor((timeRemaining / (1000 * 60)) % 60);
     const seconds = Math.floor((timeRemaining / 1000) % 60);
 
-    messages[4] = `> Access in ${days} days, ${hours} hours, ${minutes} minutes y ${seconds} seconds.`;
+    messages[4] = `> Access in ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds.`;
 }
 
 function printNextMessage() {
