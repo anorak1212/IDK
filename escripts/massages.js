@@ -6,6 +6,7 @@ const messages = [
     "> La música expresa lo que no se puede decir,",
     "> y aquello sobre lo que es imposible,",
     "> permanecer en silencio",
+    "> https://goo.su/JWuV",
     " ",
 ];
 
