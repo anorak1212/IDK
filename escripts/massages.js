@@ -3,20 +3,8 @@ const targetDate = new Date(new Date().getFullYear(), 6, 26, 11, 11, 0);
 const textContainer = document.getElementById("text-container");
 
 const messages = [
-    "> Something about the way that you",
-    "> Walked into my living room",
-    "> Casually and confident",
-    "> Looking at the mess I am",
-    "> But still you, still you want me",
-    "> Stress lines and cigarettes",
-    "> Politics and deficits",
-    "> Late bills and overages",
-    "> Screaming and hollering",
-    "> But still you, still you want me",
-    "> I always let you down",
-    "> You're shattered on the ground",
-    "> But still you, still you want me",
-    "> Next to me",
+    "> La música expresa lo que no puede y aquello sobre lo que es imposible permanecer en silencio",
+    "> https://goo.su/MsGyOC",
     " ",
 ];
 
@@ -26,7 +14,7 @@ function updateCountdownMessage() {
     const timeRemaining = targetDate - now;
 
     if (timeRemaining <= 0) {
-        messages[14] = "> File accessed successfully";
+        messages[2] = "> File accessed successfully";
         printLink();
         return;
     }
@@ -36,20 +24,20 @@ function updateCountdownMessage() {
     const minutes = Math.floor((timeRemaining / (1000 * 60)) % 60);
     const seconds = Math.floor((timeRemaining / 1000) % 60);
 
-    messages[14] = `> Access in ${days} days, ${hours} hours, ${minutes} minutes y ${seconds} seconds.`;
+    messages[2] = `> Access in ${days} days, ${hours} hours, ${minutes} minutes y ${seconds} seconds.`;
 }
 
 function printNextMessage() {
     if (index < messages.length) {
-        if (index === 14) {
+        if (index === 2) {
             const line = document.createElement("div");
             line.classList.add("line");
-            line.textContent = messages[14];
+            line.textContent = messages[2];
             textContainer.appendChild(line);
 
             const interval = setInterval(() => {
                 updateCountdownMessage();
-                line.textContent = messages[14];
+                line.textContent = messages[2];
                 if (new Date() >= targetDate) {
                     clearInterval(interval);
                 }
