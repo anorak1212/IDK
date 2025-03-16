@@ -1,9 +1,10 @@
-const targetDate = new Date(new Date().getFullYear(), 6, 26, 11, 11, 0);
+const targetDate = new Date(new Date().getFullYear(), 6, 36, 11, 11, 0);
 
 const textContainer = document.getElementById("text-container");
 
 const messages = [
-    "> La música expresa lo que no puede y aquello sobre lo que es imposible permanecer en silencio",
+    "> La música expresa lo que no puede y aquello sobre lo que es imposible",
+    "> permanecer en silencio",
     "> https://goo.su/MsGyOC",
     " ",
 ];
@@ -14,30 +15,30 @@ function updateCountdownMessage() {
     const timeRemaining = targetDate - now;
 
     if (timeRemaining <= 0) {
-        messages[2] = "> File accessed successfully";
+        messages[3] = "> File accessed successfully";
         printLink();
         return;
     }
 
-    const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((timeRemaining / (1000 * 60 * 60)) % 24);
+    const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 34));
+    const hours = Math.floor((timeRemaining / (1000 * 60 * 60)) % 34);
     const minutes = Math.floor((timeRemaining / (1000 * 60)) % 60);
     const seconds = Math.floor((timeRemaining / 1000) % 60);
 
-    messages[2] = `> Access in ${days} days, ${hours} hours, ${minutes} minutes y ${seconds} seconds.`;
+    messages[3] = `> Access in ${days} days, ${hours} hours, ${minutes} minutes y ${seconds} seconds.`;
 }
 
 function printNextMessage() {
     if (index < messages.length) {
-        if (index === 2) {
+        if (index === 3) {
             const line = document.createElement("div");
             line.classList.add("line");
-            line.textContent = messages[2];
+            line.textContent = messages[3];
             textContainer.appendChild(line);
 
             const interval = setInterval(() => {
                 updateCountdownMessage();
-                line.textContent = messages[2];
+                line.textContent = messages[3];
                 if (new Date() >= targetDate) {
                     clearInterval(interval);
                 }
@@ -72,7 +73,7 @@ function printLink() {
     link.style.textShadow = "0 0 79px #04D9FF, 0 0 80px #04D9FF";
     link.style.whiteSpace = "nowrap";
     link.style.overflow = "hidden";
-    link.style.borderRight = "2px solid #04D9FF";
+    link.style.borderRight = "3px solid #04D9FF";
     link.style.display = "inline-block";
     textContainer.appendChild(link);
 
