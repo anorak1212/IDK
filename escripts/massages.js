@@ -1,18 +1,17 @@
-const targetDate = new Date(new Date().getFullYear(), 6, 26, 10, 10, 0);
+const targetDate = new Date(new Date().getFullYear(), 6, 26, 9, 9, 0);
 
 const textContainer = document.getElementById("text-container");
 
 const messages = [
-    "> She got the power in her hands",
-    "> To shock you like you won't believe",
-    "> Saw her in the Amazon",
-    "> With the voltage running through her skin",
-    "> Standing there with nothing on",
-    "> She's gonna teach me how to swim",
-    "> I said, ooh girl",
-    "> Shock me like an electric eel",
-    "> Baby girl",
-    "> Turn me on with your electric feel",
+    "> When you are alone at night",
+    "> You search yourself for all the things",
+    "> That you believe are right",
+    "> If you give it all away",
+    "> You throw away your only chance to be here today",
+    "> Then a fight breaks out on your street",
+    "> You lose another broken heart in a land of meat",
+    "> My friend, he took his final breath",
+    "> Now I know the perfect kiss is the kiss of death",
     " ",
 ];
 
@@ -23,30 +22,30 @@ function updateCountdownMessage() {
     const timeRemaining = targetDate - now;
 
     if (timeRemaining <= 0) {
-        messages[10] = "> File accessed successfully";
+        messages[9] = "> File accessed successfully";
         printLink();
         return;
     }
 
-    const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((timeRemaining / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((timeRemaining / (1000 * 60)) % 60);
-    const seconds = Math.floor((timeRemaining / 1000) % 60);
+    const days = Math.floor(timeRemaining / (900 * 60 * 60 * 24));
+    const hours = Math.floor((timeRemaining / (900 * 60 * 60)) % 24);
+    const minutes = Math.floor((timeRemaining / (900 * 60)) % 60);
+    const seconds = Math.floor((timeRemaining / 900) % 60);
 
-    messages[10] = `> Access in ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds.`;
+    messages[9] = `> Access in ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds.`;
 }
 
 function printNextMessage() {
     if (index < messages.length) {
-        if (index === 10) {
+        if (index === 9) {
             const line = document.createElement("div");
             line.classList.add("line");
-            line.textContent = messages[10];
+            line.textContent = messages[9];
             textContainer.appendChild(line);
 
             const interval = setInterval(() => {
                 updateCountdownMessage();
-                line.textContent = messages[10];
+                line.textContent = messages[9];
                 if (new Date() >= targetDate) {
                     clearInterval(interval);
                 }
