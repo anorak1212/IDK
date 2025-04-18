@@ -82,8 +82,8 @@ body::after {
     overflow: hidden;
     white-space: nowrap;
     color: #00FF00;
-    font-size: 19px;
-    line-height: 1;
+    font-size: 16px;
+    line-height: 1.2;
     text-shadow:
         0 0 2px #00FF00,
         0 0 5px #00FF00,
