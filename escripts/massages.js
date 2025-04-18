@@ -1,20 +1,20 @@
-const targetDate = new Date(new Date().getFullYear(), 6, 26, 11, 11, 0);
+const targetDate = new Date(new Date().getFullYear(), 6, 26, 12, 12, 0);
 
 const textContainer = document.getElementById("text-container");
 
 const messages = [
-    "> Yo seré el viento que va",
-    "> Navegaré por tu oscuridad",
-    "> Tú rocío",
-    "> Beso frío",
-    "> Que me quemará",
-    "> Yo seré tormento y amor",
-    "> Tú la marea que arrastra a los dos",
-    "> Yo y tú",
-    "> Tú y yo",
-    "> No dirás que no",
-    "> Seré tu amante bandido, bandido",
-    "> Corazón, corazón malherido",
+    "> You know that it would be untrue",
+    "> You know that I would be a liar",
+    "> If I was to say to you",
+    "> Girl, we couldn't get much higher",
+    "> Come on, baby, light my fire",
+    "> Try to set the night on fire",
+    "> The time to hesitate is through",
+    "> No time to wallow in the mire",
+    "> Try now we can only lose",
+    "> And our love become a funeral pyre",
+    "> Come on, baby, light my fire",
+    "> Try to set the night on fire",
     " ",
 ];
 
