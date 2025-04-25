@@ -3,15 +3,15 @@ const targetDate = new Date(new Date().getFullYear(), 6, 26, 12, 12, 0);
 const textContainer = document.getElementById("text-container");
 
 const messages = [
-    "> I think about you day and night, it's only right",
-    "> To think about the girl you love and hold her tight",
-    "> So happy together",
-    "> If I should call you up, invest a dime",
-    "> And you say you belong to me,  and ease my mind",
-    "> Imagine how the world could be, so very fine",
-    "> So happy together",
-    "> I can't see me lovin' nobody but you",
-    "> For all my life",
+    "> When you were here before",
+    "> Couldn’t look you in the eye",
+    "> You’re just like an angel",
+    "> Your skin makes me cry",
+    "> You float like a feather",
+    "> In a beautiful world",
+    "> I wish I was special",
+    "> You’re so fuckin’ special",
+    "> But I’m a creep, I’m a weirdo",
     " ",
 ];
 
