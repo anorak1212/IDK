@@ -1,17 +1,17 @@
-const targetDate = new Date(new Date().getFullYear(), 6, 26, 12, 12, 0);
+ const targetDate = new Date(new Date().getFullYear(), 6, 26, 12, 12, 0);
 
 const textContainer = document.getElementById("text-container");
 
 const messages = [
-    "> When you were here before",
-    "> Couldn’t look you in the eye",
-    "> You’re just like an angel",
-    "> Your skin makes me cry",
-    "> You float like a feather",
-    "> In a beautiful world",
-    "> I wish I was special",
-    "> You’re so fuckin’ special",
-    "> But I’m a creep, I’m a weirdo",
+    "> It might not be the right time",
+    "> I might not be the right one",
+    "> But there's something about us I want to say",
+    "> 'Cause there's something between us anyway",
+    "> I might not be the right one",
+    "> It might not be the right time",
+    "> But there's something about us I've got to do",
+    "> Some kind of secret I will share with you",
+    "> I need you more than anything in my life",
     " ",
 ];
 
