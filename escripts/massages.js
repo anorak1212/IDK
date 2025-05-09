@@ -3,15 +3,10 @@
 const textContainer = document.getElementById("text-container");
 
 const messages = [
-    "> It might not be the right time",
-    "> I might not be the right one",
-    "> But there's something about us I want to say",
-    "> 'Cause there's something between us anyway",
-    "> I might not be the right one",
-    "> It might not be the right time",
-    "> But there's something about us I've got to do",
-    "> Some kind of secret I will share with you",
-    "> I need you more than anything in my life",
+    " Error 404",
+    " Archivo no encontrado",
+    " Código de error: #42-FNORD",
+    " Llame a su supervisor. Si no responde, reinicie su dispositivo",
     " ",
 ];
 
@@ -22,7 +17,7 @@ function updateCountdownMessage() {
     const timeRemaining = targetDate - now;
 
     if (timeRemaining <= 0) {
-        messages[9] = "> File accessed successfully";
+        messages[4] = "> File accessed successfully";
         printLink();
         return;
     }
@@ -32,20 +27,35 @@ function updateCountdownMessage() {
     const minutes = Math.floor((timeRemaining / (1000 * 60)) % 60);
     const seconds = Math.floor((timeRemaining / 1000) % 60);
 
-    messages[9] = `> Access in ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds.`;
+    //messages[4] = `> Access in ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds.`;
+    messages[4] = extremeGlitchText(`> Access in ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds.`);
+
 }
+
+function extremeGlitchText(text) {
+  const glitchChars = ['░','▒','▓','█','@','#','%','&','$','Ξ','Ø','¿','?','~','∆','π','§','¥','†'];
+  return text.split('').map(char => {
+    const r = Math.random();
+    if (r < 0.05) return glitchChars[Math.floor(Math.random() * glitchChars.length)];
+    if (r < 0.1) return char + glitchChars[Math.floor(Math.random() * glitchChars.length)];
+    if (r < 0.15) return ''; // eliminar caracter
+    return char;
+  }).join('');
+}
+
+
 
 function printNextMessage() {
     if (index < messages.length) {
-        if (index === 9) {
+        if (index === 4) {
             const line = document.createElement("div");
             line.classList.add("line");
-            line.textContent = messages[9];
+            line.textContent = messages[4];
             textContainer.appendChild(line);
 
             const interval = setInterval(() => {
                 updateCountdownMessage();
-                line.textContent = messages[9];
+                line.textContent = messages[4];
                 if (new Date() >= targetDate) {
                     clearInterval(interval);
                 }
