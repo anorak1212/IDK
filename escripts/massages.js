@@ -1,4 +1,4 @@
- const targetDate = new Date(new Date().getFullYear(), 6, 26, 12, 12, 0);
+const targetDate = new Date(new Date().getFullYear(), 6, 26, 12, 12, 0);
 
 const textContainer = document.getElementById("text-container");
 
@@ -27,23 +27,39 @@ function updateCountdownMessage() {
     const minutes = Math.floor((timeRemaining / (1000 * 60)) % 60);
     const seconds = Math.floor((timeRemaining / 1000) % 60);
 
-    //messages[4] = `> Access in ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds.`;
     messages[4] = extremeGlitchText(`> Access in ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds.`);
-
 }
 
 function extremeGlitchText(text) {
-  const glitchChars = ['░','▒','▓','█','@','#','%','&','$','Ξ','Ø','¿','?','~','∆','π','§','¥','†'];
-  return text.split('').map(char => {
-    const r = Math.random();
-    if (r < 0.05) return glitchChars[Math.floor(Math.random() * glitchChars.length)];
-    if (r < 0.1) return char + glitchChars[Math.floor(Math.random() * glitchChars.length)];
-    if (r < 0.15) return ''; // eliminar caracter
-    return char;
-  }).join('');
+    const glitchChars = ['░','▒','▓','█','@','#','%','&','$','Ξ','Ø','¿','?','~','∆','π','§','¥','†'];
+    return text.split('').map(char => {
+        const r = Math.random();
+        if (r < 0.05) return glitchChars[Math.floor(Math.random() * glitchChars.length)];
+        if (r < 0.1) return char + glitchChars[Math.floor(Math.random() * glitchChars.length)];
+        if (r < 0.15) return ''; // eliminar caracter
+        return char;
+    }).join('');
 }
 
+function glitchStaticLine(lineElement, originalText) {
+    const glitchChars = ['░','▒','▓','█','@','#','%','&','$','Ξ','Ø','¿','?','~','∆','π','§','¥','†'];
 
+    function applyGlitch(text) {
+        return text.split('').map(char => {
+            const r = Math.random();
+            if (r < 0.1) return char + glitchChars[Math.floor(Math.random() * glitchChars.length)];
+            if (r < 0.2) return glitchChars[Math.floor(Math.random() * glitchChars.length)];
+            return char;
+        }).join('');
+    }
+
+    const interval = setInterval(() => {
+        lineElement.textContent = applyGlitch(originalText);
+    }, 250);
+
+    // Puedes guardar el intervalo si quieres detenerlo más tarde
+    lineElement.dataset.glitchInterval = interval;
+}
 
 function printNextMessage() {
     if (index < messages.length) {
@@ -66,8 +82,10 @@ function printNextMessage() {
 
         const line = document.createElement("div");
         line.classList.add("line");
-        line.textContent = messages[index];
         textContainer.appendChild(line);
+
+        // Aplicar glitch animado a los primeros 4 mensajes
+        glitchStaticLine(line, messages[index]);
 
         requestAnimationFrame(() => {
             line.classList.add("typing");
@@ -94,8 +112,7 @@ function printLink() {
     link.style.display = "inline-block";
     textContainer.appendChild(link);
 
-    const textToWrite =
-        "https://open.spotify.com/playlist/0VWAGDWCLErw12a7ZrmBR1X?si=oatWEnuNSgeZD6XnLfPkZA";
+    const textToWrite = "https://open.spotify.com/playlist/0VWAGDWCLErw12a7ZrmBR1X?si=oatWEnuNSgeZD6XnLfPkZA";
     let charIndex = 0;
 
     function typeLink() {
