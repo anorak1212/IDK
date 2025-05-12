@@ -1,12 +1,11 @@
-const targetDate = new Date(new Date().getFullYear(), 6, 26, 12, 12, 0);
+ const targetDate = new Date(new Date().getFullYear(), 6, 26, 12, 12, 0);
 
 const textContainer = document.getElementById("text-container");
 
 const messages = [
-    " Error 404",
-    " Archivo no encontrado",
-    " Código de error: #42-FNORD",
-    " Llame a su supervisor. Si no responde, reinicie su dispositivo",
+    " > Perdoname por ser asi",
+    "   [Archivo  encontrado]",
+    " > https://anorak1212.github.io/65-83/",
     " ",
 ];
 
@@ -17,7 +16,7 @@ function updateCountdownMessage() {
     const timeRemaining = targetDate - now;
 
     if (timeRemaining <= 0) {
-        messages[4] = "> File accessed successfully";
+        messages[3] = "> File accessed successfully";
         printLink();
         return;
     }
@@ -27,51 +26,20 @@ function updateCountdownMessage() {
     const minutes = Math.floor((timeRemaining / (1000 * 60)) % 60);
     const seconds = Math.floor((timeRemaining / 1000) % 60);
 
-    messages[4] = extremeGlitchText(`> Access in ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds.`);
-}
-
-function extremeGlitchText(text) {
-    const glitchChars = ['░','▒','▓','█','@','#','%','&','$','Ξ','Ø','¿','?','~','∆','π','§','¥','†'];
-    return text.split('').map(char => {
-        const r = Math.random();
-        if (r < 0.05) return glitchChars[Math.floor(Math.random() * glitchChars.length)];
-        if (r < 0.1) return char + glitchChars[Math.floor(Math.random() * glitchChars.length)];
-        if (r < 0.15) return ''; // eliminar caracter
-        return char;
-    }).join('');
-}
-
-function glitchStaticLine(lineElement, originalText) {
-    const glitchChars = ['░','▒','▓','█','@','#','%','&','$','Ξ','Ø','¿','?','~','∆','π','§','¥','†'];
-
-    function applyGlitch(text) {
-        return text.split('').map(char => {
-            const r = Math.random();
-            if (r < 0.1) return char + glitchChars[Math.floor(Math.random() * glitchChars.length)];
-            if (r < 0.2) return glitchChars[Math.floor(Math.random() * glitchChars.length)];
-            return char;
-        }).join('');
-    }
-
-    const interval = setInterval(() => {
-        lineElement.textContent = applyGlitch(originalText);
-    }, 250);
-
-    // Puedes guardar el intervalo si quieres detenerlo más tarde
-    lineElement.dataset.glitchInterval = interval;
+    messages[3] = `> Access in ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds.`;
 }
 
 function printNextMessage() {
     if (index < messages.length) {
-        if (index === 4) {
+        if (index === 3) {
             const line = document.createElement("div");
             line.classList.add("line");
-            line.textContent = messages[4];
+            line.textContent = messages[3];
             textContainer.appendChild(line);
 
             const interval = setInterval(() => {
                 updateCountdownMessage();
-                line.textContent = messages[4];
+                line.textContent = messages[3];
                 if (new Date() >= targetDate) {
                     clearInterval(interval);
                 }
@@ -82,10 +50,8 @@ function printNextMessage() {
 
         const line = document.createElement("div");
         line.classList.add("line");
+        line.textContent = messages[index];
         textContainer.appendChild(line);
-
-        // Aplicar glitch animado a los primeros 4 mensajes
-        glitchStaticLine(line, messages[index]);
 
         requestAnimationFrame(() => {
             line.classList.add("typing");
@@ -112,7 +78,8 @@ function printLink() {
     link.style.display = "inline-block";
     textContainer.appendChild(link);
 
-    const textToWrite = "https://open.spotify.com/playlist/0VWAGDWCLErw12a7ZrmBR1X?si=oatWEnuNSgeZD6XnLfPkZA";
+    const textToWrite =
+        "https://open.spotify.com/playlist/0VWAGDWCLErw12a7ZrmBR1X?si=oatWEnuNSgeZD6XnLfPkZA";
     let charIndex = 0;
 
     function typeLink() {
