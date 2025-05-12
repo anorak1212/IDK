@@ -81,14 +81,14 @@ body::after {
     width: 0;
     overflow: hidden;
     white-space: nowrap;
-    color: #FF0000;
+    color: #29ffda;
     font-size: 20px;
     line-height: 1.2;
     text-shadow:
-        0 0 2px #FF0000,
-        0 0 5px #FF0000,
-        0 0 8px #FF0000;
-    border-right: 2px solid #FF0000;
+        0 0 2px #29ffda,
+        0 0 5px #29ffda,
+        0 0 8px #29ffda;
+    border-right: 2px solid #29ffda;
     animation: typing 3.3s steps(30) forwards, blink 0.7s step-end infinite alternate;
     animation-fill-mode: forwards;
 }
