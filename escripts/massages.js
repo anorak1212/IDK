@@ -3,9 +3,20 @@
 const textContainer = document.getElementById("text-container");
 
 const messages = [
-    " > Perdoname por ser asi",
-    "   [Archivo  encontrado]",
-    " > https://anorak1212.github.io/65-83/",
+    " > Seguro, mujer, que hoy eres feliz",
+    " > Que nada de ayer hoy te hace llorar",
+    " > Tú con él",
+    " > El tiempo corre, yo te espero, pero tú con él",
+    " > Ya no recuerdas mis locuras ni el amor aquel",
+    " > Estás tranquila, lo mereces, siempre fuiste bien",
+    " > Tú con él",
+    " > No me sorprende, sospechaba terminar así",
+    " > Yo solamente fui la excusa para hacerle ver",
+    " > Que tú podías, si querías, vivir sin su amor",
+    " > Perdóname",
+    " > No me di cuenta de ese juego y me enamoré",
+    " > Después fue tarde, no podía ya volver atrás",
+    " > Y te quería cada día más y más",
     " ",
 ];
 
@@ -16,7 +27,7 @@ function updateCountdownMessage() {
     const timeRemaining = targetDate - now;
 
     if (timeRemaining <= 0) {
-        messages[3] = "> File accessed successfully";
+        messages[14] = "> File accessed successfully";
         printLink();
         return;
     }
@@ -26,20 +37,20 @@ function updateCountdownMessage() {
     const minutes = Math.floor((timeRemaining / (1000 * 60)) % 60);
     const seconds = Math.floor((timeRemaining / 1000) % 60);
 
-    messages[3] = `> Access in ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds.`;
+    messages[14] = `> Access in ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds.`;
 }
 
 function printNextMessage() {
     if (index < messages.length) {
-        if (index === 3) {
+        if (index === 14) {
             const line = document.createElement("div");
             line.classList.add("line");
-            line.textContent = messages[3];
+            line.textContent = messages[14];
             textContainer.appendChild(line);
 
             const interval = setInterval(() => {
                 updateCountdownMessage();
-                line.textContent = messages[3];
+                line.textContent = messages[14];
                 if (new Date() >= targetDate) {
                     clearInterval(interval);
                 }
