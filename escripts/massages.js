@@ -3,20 +3,12 @@
 const textContainer = document.getElementById("text-container");
 
 const messages = [
-    " > Seguro, mujer, que hoy eres feliz",
-    " > Que nada de ayer hoy te hace llorar",
-    " > Tú con él",
-    " > El tiempo corre, yo te espero, pero tú con él",
-    " > Ya no recuerdas mis locuras ni el amor aquel",
-    " > Estás tranquila, lo mereces, siempre fuiste bien",
-    " > Tú con él",
-    " > No me sorprende, sospechaba terminar así",
-    " > Yo solamente fui la excusa para hacerle ver",
-    " > Que tú podías, si querías, vivir sin su amor",
-    " > Perdóname",
-    " > No me di cuenta de ese juego y me enamoré",
-    " > Después fue tarde, no podía ya volver atrás",
-    " > Y te quería cada día más y más",
+    " > NO TRATES DE ENAMORARME O NO TE HAGO CORO",
+    " > HACE TIEMPO QUE DE NADIE YO NO ME ENAMORO",
+    " > Y ESTOY PUESTO PA' USTE', PA' HACERLO OTRA VE'",  
+    " > PERO MI TIEMPO ES ORO",  
+    " > YO POR NADIE ME AJORO",  
+    " > LO SIENTO BB:/ ",
     " ",
 ];
 
@@ -27,7 +19,7 @@ function updateCountdownMessage() {
     const timeRemaining = targetDate - now;
 
     if (timeRemaining <= 0) {
-        messages[14] = "> File accessed successfully";
+        messages[6] = "> File accessed successfully";
         printLink();
         return;
     }
@@ -37,20 +29,21 @@ function updateCountdownMessage() {
     const minutes = Math.floor((timeRemaining / (1000 * 60)) % 60);
     const seconds = Math.floor((timeRemaining / 1000) % 60);
 
-    messages[14] = `> Access in ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds.`;
+    messages[6] = `> ACCESS IN ${days} DAYS, ${hours} HOURS, ${minutes} MINUTES, AND ${seconds} SECONDS.`;
+    //messages[6] = `> Access in ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds.`;
 }
 
 function printNextMessage() {
     if (index < messages.length) {
-        if (index === 14) {
+        if (index === 6) {
             const line = document.createElement("div");
             line.classList.add("line");
-            line.textContent = messages[14];
+            line.textContent = messages[6];
             textContainer.appendChild(line);
 
             const interval = setInterval(() => {
                 updateCountdownMessage();
-                line.textContent = messages[14];
+                line.textContent = messages[6];
                 if (new Date() >= targetDate) {
                     clearInterval(interval);
                 }
