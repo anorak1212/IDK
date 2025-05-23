@@ -7,6 +7,7 @@
     box-sizing: border-box;
 }
 
+
 html, body {
     background: black;
     overflow: hidden;
@@ -81,15 +82,15 @@ body::after {
     width: 0;
     overflow: hidden;
     white-space: nowrap;
-    color: #29ffda;
+    color: #16e3e1;
     font-size: 20px;
     line-height: 1.2;
     text-shadow:
-        0 0 2px #29ffda,
-        0 0 5px #29ffda,
-        0 0 8px #29ffda;
-    border-right: 2px solid #29ffda;
-    animation: typing 3.3s steps(30) forwards, blink 0.7s step-end infinite alternate;
+        0 0 1px #16e3e1,
+        0 0 2.5px #16e3e1,
+        0 0 4px #16e3e1;
+    border-right: 1px solid #16e3e1;
+    animation: typing 3.5s steps(30) forwards, blink 0.8s step-end infinite alternate;
     animation-fill-mode: forwards;
 }
 
