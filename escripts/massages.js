@@ -1,103 +1,116 @@
- const targetDate = new Date(new Date().getFullYear(), 6, 26, 12, 12, 0);
+// === CONFIGURACIÓN CENTRALIZADA ===
+const FECHA_OBJETIVO = new Date(new Date().getFullYear(), 6, 26, 11, 11, 0);
+const INDICE_CONTADOR = 12;
+const ENLACE_SECRETO = "https://open.spotify.com/playlist/0VWAGDWCLErw12a7ZrmBR1X?si=oatWEnuNSgeZD6XnLfPkZA";
+const COLOR_ENLACE = "#04D12FF";
+const VELOCIDAD_TEXTO_LINK = 50; 
+const INTERVALO_CONTADOR = 500;
 
-const textContainer = document.getElementById("text-container");
-
-const messages = [
-    " > NO TRATES DE ENAMORARME O NO TE HAGO CORO",
-    " > HACE TIEMPO QUE DE NADIE YO NO ME ENAMORO",
-    " > Y ESTOY PUESTO PA' USTE', PA' HACERLO OTRA VE'",  
-    " > PERO MI TIEMPO ES ORO",  
-    " > YO POR NADIE ME AJORO",  
-    " > LO SIENTO BB:/ ",
+const MENSAJES_INICIALES = [
+    " > I KNOW I STAND IN LINE",
+    " > UNTIL YOU THINK YOU HAVE THE TIME",
+    " > TO SPEND AN EVENING WITH ME",
+    " > AND IF WE GO SOME PLACE TO DANCE",
+    " > I KNOW THAT THERE'S A CHANCE",
+    " > YOU WON'T BE LEAVING WITH ME",
+    " > AND AFTERWARDS WE DROP INTO",
+    " > A QUIET LITTLE PLACE",
+    " > AND HAVE A DRINK OR TWO",
+    " > AND THEN I GO AND SPOIL IT ALL",
+    " > BY SAYING SOMETHING STUPID",
+    " > LIKE 'I LOVE YOU' :/",
     " ",
 ];
 
-let index = 0;
+const CONTENEDOR_TEXTO = document.getElementById("text-container");
+let mensajes = [...MENSAJES_INICIALES];
+let indiceMensaje = 0;
 
-function updateCountdownMessage() {
-    const now = new Date();
-    const timeRemaining = targetDate - now;
+// === FUNCIONES AUXILIARES ===
 
-    if (timeRemaining <= 0) {
-        messages[6] = "> File accessed successfully";
-        printLink();
+function crearLinea(texto) {
+    const linea = document.createElement("div");
+    linea.classList.add("line");
+    linea.textContent = texto;
+    CONTENEDOR_TEXTO.appendChild(linea);
+    return linea;
+}
+
+function actualizarMensajeContador() {
+    const ahora = new Date();
+    const restante = FECHA_OBJETIVO - ahora;
+
+    if (restante <= 0) {
+        mensajes[INDICE_CONTADOR] = "> File accessed successfully";
+        mostrarLink();
         return;
     }
 
-    const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((timeRemaining / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((timeRemaining / (1000 * 60)) % 60);
-    const seconds = Math.floor((timeRemaining / 1000) % 60);
+    const dias = Math.floor(restante / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((restante / (1000 * 60 * 60)) % 24);
+    const minutos = Math.floor((restante / (1000 * 60)) % 60);
+    const segundos = Math.floor((restante / 1000) % 60);
 
-    messages[6] = `> ACCESS IN ${days} DAYS, ${hours} HOURS, ${minutes} MINUTES, AND ${seconds} SECONDS.`;
-    //messages[6] = `> Access in ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds.`;
+    mensajes[INDICE_CONTADOR] = `> ACCESS IN ${dias} DAYS, ${horas} HOURS, ${minutos} MINUTES, AND ${segundos} SECONDS.`;
 }
 
-function printNextMessage() {
-    if (index < messages.length) {
-        if (index === 6) {
-            const line = document.createElement("div");
-            line.classList.add("line");
-            line.textContent = messages[6];
-            textContainer.appendChild(line);
+function mostrarLink() {
+    const enlace = document.createElement("a");
+    enlace.href = ENLACE_SECRETO;
+    enlace.target = "_blank";
+    enlace.classList.add("line"); // Igual que las demás líneas
+    enlace.classList.add("typing"); // Aplica animación
 
-            const interval = setInterval(() => {
-                updateCountdownMessage();
-                line.textContent = messages[6];
-                if (new Date() >= targetDate) {
-                    clearInterval(interval);
+    CONTENEDOR_TEXTO.appendChild(enlace);
+
+    let textoLink = "";
+    let i = 0;
+
+    function escribirCaracter() {
+        if (i < ENLACE_SECRETO.length) {
+            textoLink += ENLACE_SECRETO[i];
+            enlace.textContent = textoLink;
+            i++;
+            setTimeout(escribirCaracter, VELOCIDAD_TEXTO_LINK);
+        } else {
+            enlace.classList.add("typing-complete");
+        }
+    }
+
+    escribirCaracter();
+}
+
+
+function mostrarSiguienteMensaje() {
+    if (indiceMensaje < mensajes.length) {
+        if (indiceMensaje === INDICE_CONTADOR) {
+            const lineaContador = crearLinea(mensajes[INDICE_CONTADOR]);
+
+            const intervalo = setInterval(() => {
+                actualizarMensajeContador();
+                lineaContador.textContent = mensajes[INDICE_CONTADOR];
+
+                if (new Date() >= FECHA_OBJETIVO) {
+                    clearInterval(intervalo);
                 }
-            }, 500);
+            }, INTERVALO_CONTADOR);
 
             return;
         }
 
-        const line = document.createElement("div");
-        line.classList.add("line");
-        line.textContent = messages[index];
-        textContainer.appendChild(line);
-
+        const linea = crearLinea(mensajes[indiceMensaje]);
         requestAnimationFrame(() => {
-            line.classList.add("typing");
+            linea.classList.add("typing");
         });
 
-        line.addEventListener("animationend", () => {
-            line.classList.add("typing-complete");
-            index++;
-            printNextMessage();
+        linea.addEventListener("animationend", () => {
+            linea.classList.add("typing-complete");
+            indiceMensaje++;
+            mostrarSiguienteMensaje();
         });
     }
 }
 
-function printLink() {
-    const link = document.createElement("a");
-    link.href = "https://open.spotify.com/playlist/0VWAGDWCLErw12a7ZrmBR1X?si=oatWEnuNSgeZD6XnLfPkZA";
-    link.textContent = "";
-    link.target = "_blank";
-    link.style.color = "#04D12FF";
-    link.style.textShadow = "0 0 712px #04D12FF, 0 0 80px #04D12FF";
-    link.style.whiteSpace = "nowrap";
-    link.style.overflow = "hidden";
-    link.style.borderRight = "4px solid #04D12FF";
-    link.style.display = "inline-block";
-    textContainer.appendChild(link);
-
-    const textToWrite =
-        "https://open.spotify.com/playlist/0VWAGDWCLErw12a7ZrmBR1X?si=oatWEnuNSgeZD6XnLfPkZA";
-    let charIndex = 0;
-
-    function typeLink() {
-        if (charIndex < textToWrite.length) {
-            link.textContent += textToWrite[charIndex];
-            charIndex++;
-            setTimeout(typeLink, 50);
-        } else {
-            link.style.borderRight = "none";
-        }
-    }
-
-    typeLink();
-}
-
-updateCountdownMessage();
-printNextMessage();
+// === INICIO DE LA EJECUCIÓN ===
+actualizarMensajeContador();
+mostrarSiguienteMensaje();
