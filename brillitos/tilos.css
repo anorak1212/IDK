@@ -94,14 +94,14 @@ body::after {
     width: fit-content;
     overflow: hidden;
     white-space: nowrap;
-    color: #39FF14;
-    font-size: 14px;
+    color: #00FFFF;
+    font-size: 12px;
     line-height: 1;
     text-shadow:
         0 0 1px #39FF14,
-        0 0 2.5px #39FF14,
-        0 0 4px #39FF14;
-    border-right: 1px solid #39FF14;
+        0 0 2.5px #00FFFF,
+        0 0 4px #00FFFF;
+    border-right: 1px solid #00FFFF;
     animation: typing 3.5s steps(30) forwards, blink 0.8s step-end infinite alternate;
     animation-fill-mode: forwards;
 }
