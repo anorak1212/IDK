@@ -1,28 +1,23 @@
 // === CONFIGURACIÓN CENTRALIZADA ===
 const FECHA_OBJETIVO = new Date(new Date().getFullYear(), 6, 26, 11, 11, 0);
-const INDICE_CONTADOR = 16;
+const INDICE_CONTADOR = 10;
 const ENLACE_SECRETO = "https://open.spotify.com/playlist/0VWAGDWCLErw12a7ZrmBR1X?si=oatWEnuNSgeZD6XnLfPkZA";
 const COLOR_ENLACE = "#00FFFF";
 const VELOCIDAD_TEXTO_LINK = 50; 
 const INTERVALO_CONTADOR = 500;
 
 const MENSAJES_INICIALES = [
-    "> WE'RE TALKING AWAY",
-    "> I DON'T KNOW WHAT I'M TO SAY",
-    "> I'LL SAY IT ANYWAY",
-    "> TODAY'S ANOTHER DAY TO FIND YOU",
-    "> SHYING AWAY",
-    "> I'LL BE COMING FOR YOUR LOVE, OKAY?",
-    "> TAKE ON ME",
-    "> TAKE ME ON",
-    "> I'LL BE GONE",
-    "> IN A DAY OR TWO",
-    "> SO NEEDLESS TO SAY",
-    "> I'M ODDS AND ENDS",
-    "> BUT THAT'S ME STUMBLING AWAY",
-    "> SLOWLY LEARNING THAT LIFE IS OKAY",
-    "> SAY AFTER ME",
-    "> IT'S NO BETTER TO BE SAFE THAN SORRY",
+    "> LA VIDA SE ME ESCONDE",
+    "> DETRÁS DE UNA PROMESA SIN CUMPLIR",
+    "> DE DÓNDE NACE ALGUNA INSPIRACIÓN",
+    "> DE DONDE NACE OTRA CANCIÓN",
+    "> Y YA NO SÉ BIEN QUIÉN SE ESCONDE",
+    "> YO YA NO SÉ LO QUE SE ESCONDE",
+    "> Y YO SÉ QUE TAL VEZ",
+    "> TÚ NUNCA ESCUCHES MI CANCIÓN, YO SÉ",
+    "> Y YO SÉ QUE TAL VEZ",
+    "> TE SIGA USANDO A TI",
+    "> ROBÁNDOTE EN MI INSPIRACIÓN"
 ];
 
 const CONTENEDOR_TEXTO = document.getElementById("text-container");

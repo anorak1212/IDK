@@ -1,128 +1,143 @@
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
 
 * {
-    padding: 0;
     margin: 0;
-    font-family: 'Inconsolata', monospace;
+    padding: 0;
     box-sizing: border-box;
+    font-family: 'Inconsolata', monospace;
 }
 
-
-html,
-body {
-    background: black;
-    overflow-x: hidden;
-    overflow-y: hidden;
+html, body {
     width: 100%;
     height: 100%;
+    background: black;
+    overflow: hidden;
     position: relative;
 }
 
+/* Fondo estilo CRT (pantalla retro) */
 body::after {
     content: "";
     position: absolute;
-    pointer-events: none;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: repeating-linear-gradient(to bottom,
-            rgba(255, 255, 255, 0.02) 0,
-            rgba(255, 255, 255, 0.02) 2px,
-            rgba(0, 0, 0, 0) 2px,
-            rgba(0, 0, 0, 0) 4px);
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.02) 0 2px,
+        rgba(0, 0, 0, 0) 2px 4px
+    );
     opacity: 0.1;
     mix-blend-mode: multiply;
+    pointer-events: none;
     z-index: 9999;
 }
 
 .container {
     position: relative;
     top: 30px;
-    left: 20px;
+    left: 30px;
     width: 100%;
     height: 100vh;
     display: flex;
-    background-color: black;
-    animation: flicker 3s infinite;
-}
-
-@keyframes flicker {
-
-    0%,
-    19%,
-    21%,
-    23%,
-    25%,
-    54%,
-    56%,
-    100% {
-        opacity: 1;
-    }
-
-    20%,
-    22%,
-    55% {
-        opacity: 0.9;
-    }
+    flex-direction: column;
 }
 
 #text-container {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    padding-right: 20px;
+    position: relative;
+    overflow: hidden;
+    max-width: fit-content;
 }
 
-@keyframes typing {
-    from {
-        width: 0;
-    }
-
-    to {
-        width: 100%;
-    }
+/* Variables por defecto para animación */
+:root {
+    --typing-steps: 25;
+    --typing-width: 100%;
 }
 
-@keyframes blink {
-    50% {
-        border-color: transparent;
-    }
-}
-
+/* Línea de texto */
 .line {
     width: fit-content;
     overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
     white-space: nowrap;
     color: #00FFFF;
-    font-size: 12px;
+    font-size: 18px;
     line-height: 1;
     text-shadow:
         0 0 1px #39FF14,
-        0 0 2.5px #00FFFF,
-        0 0 4px #00FFFF;
-    border-right: 1px solid #00FFFF;
-    animation: typing 3.5s steps(30) forwards, blink 0.8s step-end infinite alternate;
-    animation-fill-mode: forwards;
+        0 0 5px #00FFFF,
+        0 0 7px #00FFFF;
 }
 
+/* Línea en modo "escribiéndose" */
+.line.typing {
+    border-right: 1px solid #00FFFF;
+    animation: typing 3.5s steps(var(--typing-steps)) forwards, blink 0.8s step-end infinite alternate;
+    position: relative;
+    width: 0; /* Para que empiece en 0 y crezca */
+}
+
+/* Línea terminada de escribir */
 .line.typing-complete {
     border-right: none;
+    max-width: min-content;
 }
 
-@media only screen and (max-width: 600px) {
+/* Animaciones */
+@keyframes typing {
+    from { width: 0; }
+    to { width: var(--typing-width); }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+@keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+    20%, 22%, 55% { opacity: 0.9; }
+}
+
+/* === MEDIA QUERIES === */
+
+/* Móviles medianos */
+@media (max-width: 600px) {
     .container {
         top: 10px;
         left: 10px;
+        padding: 0 1rem;
+    }
+
+    #text-container {
+        max-width: 100%;
+        gap: 8px;
     }
 
     .line {
-        font-size: 12px;
+        font-size: 13px;
+        white-space: normal; /* Permite saltos si es muy largo */
+        word-break: break-word;
+    }
+    /* Ajustar animación para menos caracteres */
+    :root {
+        --typing-steps: 15;
+        --typing-width: 15ch; /* Usa ch para ancho basado en caracteres */
     }
 }
 
-@media only screen and (max-width: 400px) {
+/* Móviles pequeños */
+@media (max-width: 400px) {
     .line {
         font-size: 12px;
+    }
+    :root {
+        --typing-steps: 10;
+        --typing-width: 10ch;
     }
 }
