@@ -95,7 +95,7 @@ body::after {
     overflow: hidden;
     white-space: nowrap;
     color: #00FFFF;
-    font-size: 12px;
+    font-size: 18px;
     line-height: 1;
     text-shadow:
         0 0 1px #39FF14,
@@ -123,6 +123,6 @@ body::after {
 
 @media only screen and (max-width: 400px) {
     .line {
-        font-size: 12px;
+        font-size: 10px;
     }
 }
