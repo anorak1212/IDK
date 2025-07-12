@@ -1,20 +1,22 @@
 // === CONFIGURACIÓN CENTRALIZADA ===
 const FECHA_OBJETIVO = new Date(new Date().getFullYear(), 6, 26, 11, 11, 0);
-const INDICE_CONTADOR = 7;
+const INDICE_CONTADOR = 8;
 const ENLACE_SECRETO = "https://open.spotify.com/playlist/0VWAGDWCLErw12a7ZrmBR1X?si=oatWEnuNSgeZD6XnLfPkZA";
 const COLOR_ENLACE = "#00FFFF";
 const VELOCIDAD_TEXTO_LINK = 50; 
 const INTERVALO_CONTADOR = 500;
 
 const MENSAJES_INICIALES = [
-    "> THERE'S SOMETHING ABOUT YOU, BABE",
-    "> I CAN BE YOUR BABE IF YOU WON'T LET GO",
-    "> IF YOU TALK TO ME, BUT YOU ALREADY KNOW",
-    "> I CAN BE YOUR BABE IF YOU WON'T LET GO",
-    "> CARIÑO, ERES UN AMOR",
-    "> CARIÑITO, PINTAS EN COLOR",
-    "> THERE'S SOMETHING ABOUT YOU :/"
+    "> LADY",
+    "> I JUST FEEL LIKE",
+    "> I WON'T GET YOU",
+    "> OUT OF MY MIND",
+    "> I FEEL LOVED",
+    "> FOR THE FIRST TIME",
+    "> AND I KNOW THAT IT'S TRUE",
+    "> I CAN TELL BY THE LOOK IN YOUR EYES"
 ];
+
 
 
 const CONTENEDOR_TEXTO = document.getElementById("text-container");
