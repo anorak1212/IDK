@@ -1,22 +1,23 @@
 // === CONFIGURACIÓN CENTRALIZADA ===
 const FECHA_OBJETIVO = new Date(new Date().getFullYear(), 6, 26, 11, 11, 0);
-const INDICE_CONTADOR = 8;
-const ENLACE_SECRETO = "https://open.spotify.com/playlist/0VWAGDWCLErw12a7ZrmBR1X?si=oatWEnuNSgeZD6XnLfPkZA";
+const INDICE_CONTADOR = 10;
+const ENLACE_SECRETO = "";
 const COLOR_ENLACE = "#00FFFF";
-const VELOCIDAD_TEXTO_LINK = 50; 
+const VELOCIDAD_TEXTO_LINK = 50;
 const INTERVALO_CONTADOR = 500;
 
 const MENSAJES_INICIALES = [
-    "> LADY",
-    "> I JUST FEEL LIKE",
-    "> I WON'T GET YOU",
-    "> OUT OF MY MIND",
-    "> I FEEL LOVED",
-    "> FOR THE FIRST TIME",
-    "> AND I KNOW THAT IT'S TRUE",
-    "> I CAN TELL BY THE LOOK IN YOUR EYES"
+    "> SI SIGUE JUGANDO CONMIGO TE VAS A QUEMAR",
+    "> ESTA BELLAQUERA TUYA NO ES NORMAL",
+    "> TU TIENES A ALGUIEN",
+    "> CUIDAO NO MENCIONES MI NOMBRE",
+    "> LO NUESTRO ES PECADO HOY NO VAMO A QUEMAR",
+    "> DALE VEN, MATEMOS LAS GANAS",
+    "> LLEGAS Y TE VAS DE LA NADA",
+    "> YO NO SE SI ESTARE MAÑANA",
+    "> EL NO SABE QUE TU A MI RECLAMAS",
+    "> CUANDO TU ESTAS SOLA TU SIEMPRE ME LLAMAS"
 ];
-
 
 
 const CONTENEDOR_TEXTO = document.getElementById("text-container");
@@ -35,21 +36,33 @@ function crearLinea(texto) {
 
 function actualizarMensajeContador() {
     const ahora = new Date();
-    const restante = FECHA_OBJETIVO - ahora;
+    let restante = FECHA_OBJETIVO - ahora;
 
-    if (restante <= 0) {
-        mensajes[INDICE_CONTADOR] = "> File accessed successfully";
-        mostrarLink();
-        return;
+    const dias = Math.max(0, Math.floor(restante / (1000 * 60 * 60 * 24)));
+    const horas = Math.max(0, Math.floor((restante / (1000 * 60 * 60)) % 24));
+    const minutos = Math.max(0, Math.floor((restante / (1000 * 60)) % 60));
+    const segundos = Math.max(0, Math.floor((restante / 1000) % 60));
+
+    const mensajeFinal = `> ACCESS IN ${dias} DAYS, ${horas} HOURS, ${minutos} MINUTES, AND ${segundos} SECONDS.`;
+    mensajes[INDICE_CONTADOR] = mensajeFinal;
+
+    const lineas = document.querySelectorAll(".line");
+    const lineaContador = lineas[INDICE_CONTADOR] || null;
+    if (lineaContador) {
+        lineaContador.textContent = mensajeFinal;
+        lineaContador.classList.add("neon-rojo");
     }
 
-    const dias = Math.floor(restante / (1000 * 60 * 60 * 24));
-    const horas = Math.floor((restante / (1000 * 60 * 60)) % 24);
-    const minutos = Math.floor((restante / (1000 * 60)) % 60);
-    const segundos = Math.floor((restante / 1000) % 60);
-
-    mensajes[INDICE_CONTADOR] = `> ACCESS IN ${dias} DAYS, ${horas} HOURS, ${minutos} MINUTES, AND ${segundos} SECONDS.`;
+    if (restante <= 0) {
+        mensajes[INDICE_CONTADOR] = "> ACCESS IN 0 DAYS, 0 HOURS, 0 MINUTES, AND 0 SECONDS.";
+        if (lineaContador) {
+            lineaContador.textContent = mensajes[INDICE_CONTADOR];
+            lineaContador.classList.add("neon-rojo");
+        }
+        mostrarLink();
+    }
 }
+
 
 function mostrarLink() {
     const enlace = document.createElement("a");
@@ -82,6 +95,7 @@ function mostrarSiguienteMensaje() {
     if (indiceMensaje < mensajes.length) {
         if (indiceMensaje === INDICE_CONTADOR) {
             const lineaContador = crearLinea(mensajes[INDICE_CONTADOR]);
+            lineaContador.classList.add("neon-rojo");
 
             const intervalo = setInterval(() => {
                 actualizarMensajeContador();
