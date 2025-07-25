@@ -1,30 +1,30 @@
-// === CONFIGURACIÓN CENTRALIZADA ===
+
+let linkMostrado = false;
+
+
 const FECHA_OBJETIVO = new Date(new Date().getFullYear(), 6, 26, 11, 11, 0);
-const INDICE_CONTADOR = 10;
-const ENLACE_SECRETO = "";
+const INDICE_CONTADOR = 9;
+const ENLACE_SECRETO = "todavia no es hora jajaj";
 const COLOR_ENLACE = "#00FFFF";
-const VELOCIDAD_TEXTO_LINK = 50;
+const VELOCIDAD_TEXTO_LINK = 200;
 const INTERVALO_CONTADOR = 500;
 
 const MENSAJES_INICIALES = [
-    "> SI SIGUE JUGANDO CONMIGO TE VAS A QUEMAR",
-    "> ESTA BELLAQUERA TUYA NO ES NORMAL",
-    "> TU TIENES A ALGUIEN",
-    "> CUIDAO NO MENCIONES MI NOMBRE",
-    "> LO NUESTRO ES PECADO HOY NO VAMO A QUEMAR",
-    "> DALE VEN, MATEMOS LAS GANAS",
-    "> LLEGAS Y TE VAS DE LA NADA",
-    "> YO NO SE SI ESTARE MAÑANA",
-    "> EL NO SABE QUE TU A MI RECLAMAS",
-    "> CUANDO TU ESTAS SOLA TU SIEMPRE ME LLAMAS"
+    "> I WISH YOU COULD SWIM",
+    "> LIKE THE DOLPHINS",
+    "> LIKE DOLPHINS CAN SWIM",
+    "> THOUGH NOTHING",
+    "> NOTHING WILL KEEP US TOGETHER",
+    "> WE CAN BEAT THEM",
+    "> FOREVER AND EVER",
+    "> WE CAN BE HEROES",
+    "> JUST FOR ONE DAY"
 ];
 
-
 const CONTENEDOR_TEXTO = document.getElementById("text-container");
-let mensajes = [...MENSAJES_INICIALES];
-let indiceMensaje = 0;
 
-// === FUNCIONES AUXILIARES ===
+let mensajes = [...MENSAJES_INICIALES, ""];
+let indiceMensaje = 0;
 
 function crearLinea(texto) {
     const linea = document.createElement("div");
@@ -34,86 +34,151 @@ function crearLinea(texto) {
     return linea;
 }
 
+function generarContadorPlain() {
+    const ahora = new Date();
+    const restante = Math.max(0, FECHA_OBJETIVO - ahora);
+    const dias = Math.floor(restante / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((restante / (1000 * 60 * 60)) % 24);
+    const minutos = Math.floor((restante / (1000 * 60)) % 60);
+    const segundos = Math.floor((restante / 1000) % 60);
+    return `> ACCESS IN ${dias} DAYS, ${horas} HOURS, ${minutos} MINUTES, AND ${segundos} SECONDS.`;
+}
+
+function generarContadorSpanned() {
+    const ahora = new Date();
+    const restante = Math.max(0, FECHA_OBJETIVO - ahora);
+    const dias = Math.floor(restante / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((restante / (1000 * 60 * 60)) % 24);
+    const minutos = Math.floor((restante / (1000 * 60)) % 60);
+    const segundos = Math.floor((restante / 1000) % 60);
+    const wrap = n => `<span class="blink-number-limited">${n}</span>`;
+    return `> ACCESS IN ${wrap(dias)} DAYS, ${wrap(horas)} HOURS, ${wrap(minutos)} MINUTES, AND ${wrap(segundos)} SECONDS.`;
+}
+
 function actualizarMensajeContador() {
     const ahora = new Date();
     let restante = FECHA_OBJETIVO - ahora;
 
-    const dias = Math.max(0, Math.floor(restante / (1000 * 60 * 60 * 24)));
-    const horas = Math.max(0, Math.floor((restante / (1000 * 60 * 60)) % 24));
-    const minutos = Math.max(0, Math.floor((restante / (1000 * 60)) % 60));
-    const segundos = Math.max(0, Math.floor((restante / 1000) % 60));
+    if (restante <= 0) {
+        const cero = '<span class="blink-number-limited">0</span>';
+        const mensajeFinal = `> ACCESS IN ${cero} DAYS, ${cero} HOURS, ${cero} MINUTES, AND ${cero} SECONDS.`;
+        mensajes[INDICE_CONTADOR] = mensajeFinal;
 
-    const mensajeFinal = `> ACCESS IN ${dias} DAYS, ${horas} HOURS, ${minutos} MINUTES, AND ${segundos} SECONDS.`;
+        const lineas = document.querySelectorAll(".line");
+        const lineaContador = lineas[INDICE_CONTADOR];
+        if (lineaContador) {
+            lineaContador.innerHTML = mensajeFinal;
+            lineaContador.classList.add("neon-rojo");
+        }
+
+        setTimeout(mostrarLink, 5000);
+        return;
+    }
+
+    const dias = Math.floor(restante / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((restante / (1000 * 60 * 60)) % 24);
+    const minutos = Math.floor((restante / (1000 * 60)) % 60);
+    const segundos = Math.floor((restante / 1000) % 60);
+
+    const mensajeFinal =
+        `> ACCESS IN <span class="blink-number">${dias}</span> DAYS, `
+        + `<span class="blink-number">${horas}</span> HOURS, `
+        + `<span class="blink-number">${minutos}</span> MINUTES, AND `
+        + `<span class="blink-number">${segundos}</span> SECONDS.`;
+
     mensajes[INDICE_CONTADOR] = mensajeFinal;
 
     const lineas = document.querySelectorAll(".line");
-    const lineaContador = lineas[INDICE_CONTADOR] || null;
+    const lineaContador = lineas[INDICE_CONTADOR];
     if (lineaContador) {
-        lineaContador.textContent = mensajeFinal;
+        lineaContador.innerHTML = mensajeFinal;
         lineaContador.classList.add("neon-rojo");
     }
-
-    if (restante <= 0) {
-        mensajes[INDICE_CONTADOR] = "> ACCESS IN 0 DAYS, 0 HOURS, 0 MINUTES, AND 0 SECONDS.";
-        if (lineaContador) {
-            lineaContador.textContent = mensajes[INDICE_CONTADOR];
-            lineaContador.classList.add("neon-rojo");
-        }
-        mostrarLink();
-    }
 }
+
 
 
 function mostrarLink() {
-    const enlace = document.createElement("a");
-    enlace.href = ENLACE_SECRETO;
-    enlace.target = "_blank";
-    enlace.classList.add("line"); // Igual que las demás líneas
-    enlace.classList.add("typing"); // Aplica animación
+    if (linkMostrado) return;
+    linkMostrado = true;
 
-    CONTENEDOR_TEXTO.appendChild(enlace);
+    const lineaLoading = document.createElement("div");
+    lineaLoading.classList.add("line", "loading");
+    lineaLoading.textContent = "> CARGANDO....";
+    CONTENEDOR_TEXTO.appendChild(lineaLoading);
+    requestAnimationFrame(() => lineaLoading.classList.add("typing"));
 
-    let textoLink = "";
-    let i = 0;
+    lineaLoading.addEventListener("animationend", () => {
+        lineaLoading.classList.add("typing-complete");
 
-    function escribirCaracter() {
-        if (i < ENLACE_SECRETO.length) {
-            textoLink += ENLACE_SECRETO[i];
-            enlace.textContent = textoLink;
-            i++;
-            setTimeout(escribirCaracter, VELOCIDAD_TEXTO_LINK);
-        } else {
-            enlace.classList.add("typing-complete");
-        }
-    }
 
-    escribirCaracter();
+        document.body.classList.add("blackout");
+        setTimeout(() => {
+            CONTENEDOR_TEXTO.classList.add("scroll-up");
+
+            setTimeout(() => {
+                CONTENEDOR_TEXTO.classList.remove("scroll-up");
+                CONTENEDOR_TEXTO.style.overflowY = "visible";
+                CONTENEDOR_TEXTO.innerHTML = "";
+
+                const enlace = document.createElement("a");
+                enlace.href = ENLACE_SECRETO;
+                enlace.target = "_blank";
+
+
+                let textoLink = "> ";
+                enlace.textContent = textoLink;
+                CONTENEDOR_TEXTO.appendChild(enlace);
+                enlace.classList.add("line", "typing-link");
+
+                let idx = 0;
+                function escribirCaracter() {
+                    if (idx < ENLACE_SECRETO.length) {
+                        textoLink += ENLACE_SECRETO[idx++];
+                        enlace.textContent = textoLink;
+                        setTimeout(escribirCaracter, VELOCIDAD_TEXTO_LINK);
+                    } else {
+                        enlace.classList.add("typing-complete");
+                    }
+                }
+                escribirCaracter();
+            }, 8000);
+        }, 5000);
+    });
 }
-
 
 function mostrarSiguienteMensaje() {
     if (indiceMensaje < mensajes.length) {
+
         if (indiceMensaje === INDICE_CONTADOR) {
-            const lineaContador = crearLinea(mensajes[INDICE_CONTADOR]);
+
+            const textoPlano = generarContadorPlain();
+            const lineaContador = crearLinea(textoPlano);
             lineaContador.classList.add("neon-rojo");
 
-            const intervalo = setInterval(() => {
+
+            const idIntervalo = setInterval(() => {
+
                 actualizarMensajeContador();
-                lineaContador.textContent = mensajes[INDICE_CONTADOR];
+                lineaContador.innerHTML = mensajes[INDICE_CONTADOR];
 
                 if (new Date() >= FECHA_OBJETIVO) {
-                    clearInterval(intervalo);
+
+                    clearInterval(idIntervalo);
+
+                    lineaContador.innerHTML = generarContadorSpanned();
+
+                    setTimeout(mostrarLink, 5 * 1000);
                 }
             }, INTERVALO_CONTADOR);
 
+
+            indiceMensaje++;
             return;
         }
 
         const linea = crearLinea(mensajes[indiceMensaje]);
-        requestAnimationFrame(() => {
-            linea.classList.add("typing");
-        });
-
+        requestAnimationFrame(() => linea.classList.add("typing"));
         linea.addEventListener("animationend", () => {
             linea.classList.add("typing-complete");
             indiceMensaje++;
@@ -122,6 +187,7 @@ function mostrarSiguienteMensaje() {
     }
 }
 
+
+
 // === INICIO DE LA EJECUCIÓN ===
-actualizarMensajeContador();
 mostrarSiguienteMensaje();

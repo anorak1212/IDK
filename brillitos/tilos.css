@@ -198,3 +198,123 @@ body.access-final {
         0 0 20px #ff073a;
     border-right: 1px solid #ff073a;
 }
+
+/* === Números parpadeantes estilo despertador === */
+@keyframes blink-number {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+.blink-number {
+    display: inline-block;
+    animation: blink-number 2s step-end infinite;
+}
+
+/* === Números parpadeantes (solo 5 veces) al llegar a cero === */
+.blink-number-limited {
+    display: inline-block;
+    animation: blink-number 2s step-end 5 forwards;
+}
+
+/* 1. Acelerar / desacelerar el tipado de cualquier .typing */
+@keyframes typing {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+/* Ajusta el “5s” por defecto a lo que quieras: 8s para más lento, 3s para más rápido */
+.line.typing {
+  animation-duration: 8s;  /* <— duración total del tecleo */
+  animation-timing-function: steps(50);
+}
+
+/* 2. Hacer más lento el blink de los ceros */
+@keyframes blink-number {
+  0%, 49%   { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+/* Aquí “2s step-end infinite” define 1 parpadeo cada 2s.
+   Cámbialo a 3s o 1s según quieras. */
+.blink-number {
+  animation: blink-number 2s step-end infinite;
+}
+.blink-number-limited {
+  animation: blink-number 2s step-end 5 forwards;
+}
+
+/* 3. Estilo para la línea “> CARGANDO....” */
+.line.loading {
+  color: #DDDD55;              /* un amarillo sucio, como la BIOS vieja */
+  text-shadow: 0 0 2px #DDDD55;
+  animation: typing 6s steps(25) forwards; /* más lento que .line.typing */
+}
+
+/* 4. Scroll container: permitimos scroll visual y suavizado */
+#text-container {
+  overflow-y: auto;            /* activamos scroll para JS */
+  scroll-behavior: smooth;     /* suaviza el scroll al ‘scrollBy’ */
+}
+
+/* 5. Blackout / fade-to-black */
+/* Crearemos una clase en JS (body.blackout) para animar esto: */
+body.blackout {
+  animation: blackout 0.5s forwards;  /* 0.5s fade-to-black */
+}
+@keyframes blackout {
+  to { background: black; }
+}
+
+/* === (A) Línea de “CARGANDO....” en amarillo y más lento === */
+.line.loading {
+  color: #DDDD55;                   /* amarillo envejecido */
+  text-shadow: 0 0 2px #DDDD55;
+  /* usa la misma keyframe “typing” pero con 6 s y pocos pasos */
+  animation: typing 6s steps(25) forwards;
+}
+
+/* === (B) Contenedor con scroll suave === */
+#text-container {
+  overflow-y: auto;                 /* permite el scroll por JS */
+  scroll-behavior: smooth;          /* suaviza los movimientos de scrollBy() */
+}
+
+/* === (C) Fade-to-black vía clase .blackout === */
+@keyframes blackout {
+  to { background: black; }
+}
+body.blackout {
+  animation: blackout 0.5s forwards; /* 0.5 s de fundido a negro */
+}
+
+/* === (A) Estilo de “CARGANDO…” en amarillo y lento === */
+.line.loading {
+  color: #DDDD55;                  /* amarillo envejecido */
+  text-shadow: 0 0 2px #DDDD55;
+  animation: typing 6s steps(25) forwards;
+}
+
+/* === (B) Scroll “frame a frame” hacia arriba en 8s === */
+@keyframes retro-scroll {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-100%); }
+}
+#text-container.scroll-up {
+  animation: retro-scroll 8s steps(50) forwards;
+  will-change: transform;
+  overflow: hidden;  /* esconde lo que sube fuera */
+}
+
+/* === (C) Fade a negro usando la clase .blackout === */
+@keyframes blackout {
+  to { background: black; }
+}
+body.blackout {
+  animation: blackout 0.5s forwards;
+}
+
+/* === (D) Escritura lenta del link === */
+.line.typing-link {
+  /* Duración total de la “máquina de escribir” para el link: ajústalo a 10 s, 8 s, etc. */
+  animation-duration: 10s !important;
+  animation-timing-function: steps(50) !important;
+  /* Reusa el mismo keyframe “typing”:
+     from { width: 0 } to { width: 100% } */
+}
