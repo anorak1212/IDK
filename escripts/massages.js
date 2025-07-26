@@ -4,7 +4,7 @@ let linkMostrado = false;
 
 const FECHA_OBJETIVO = new Date(new Date().getFullYear(), 6, 26, 17, 53, 0);
 const INDICE_CONTADOR = 10;
-const ENLACE_SECRETO = "https://open.spotify.com/playlist/3iVJKP3Wm8Ou3MNQgNviFT?si=66544773f84644e3&pt=1167b1f608b55bfaf4aef7fd80f7946e";
+const ENLACE_SECRETO = "https://goo.su/4yUKk";
 const COLOR_ENLACE = "#00FFFF";
 const VELOCIDAD_TEXTO_LINK = 200;
 const INTERVALO_CONTADOR = 500;
