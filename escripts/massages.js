@@ -2,7 +2,7 @@
 let linkMostrado = false;
 
 
-const FECHA_OBJETIVO = new Date(new Date().getFullYear(), 6, 26, 5, 53, 0);
+const FECHA_OBJETIVO = new Date(new Date().getFullYear(), 6, 26, 17, 53, 0);
 const INDICE_CONTADOR = 9;
 const ENLACE_SECRETO = "todavia no es hora jajaj";
 const COLOR_ENLACE = "#00FFFF";
