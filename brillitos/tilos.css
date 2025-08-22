@@ -188,15 +188,15 @@ body.access-final {
   animation: blink-cursor 0.6s infinite, glitch 0.3s infinite;
 }
 
-
+/* MENSAJE ROJO*/
 .line.neon-rojo {
-    color: #ff073a;
+    color: #1DFF8A;
     text-shadow:
-        0 0 2px #ff073a,
-        0 0 5px #ff073a,
-        0 0 10px #ff073a,
-        0 0 20px #ff073a;
-    border-right: 1px solid #ff073a;
+        0 0 2px #1DFF8A,
+        0 0 5px #1DFF8A,
+        0 0 10px #1DFF8A,
+        0 0 20px #1DFF8A;
+    border-right: 1px solid #1DFF8A;
 }
 
 /* === Números parpadeantes estilo despertador === */

@@ -2,24 +2,15 @@
 let linkMostrado = false;
 
 
-const FECHA_OBJETIVO = new Date(new Date().getFullYear(), 6, 26, 17, 53, 0);
-const INDICE_CONTADOR = 10;
+const FECHA_OBJETIVO = new Date(new Date().getFullYear(), 11, 25, 12, 0, 0);
+const INDICE_CONTADOR = 1;
 const ENLACE_SECRETO = "https://goo.su/4yUKk";
 const COLOR_ENLACE = "#00FFFF";
-const VELOCIDAD_TEXTO_LINK = 200;
+const VELOCIDAD_TEXTO_LINK = 100;
 const INTERVALO_CONTADOR = 500;
 
 const MENSAJES_INICIALES = [
-  "> LA VIDA TE SORPRENDE EN CADA MOMENTO",
-  "> A VECES REÍMOS, A VECES CAEMOS",
-  "> CAER DUELE, PERO SIEMPRE VOLVEMOS A LEVANTARNOS",
-  "> NO ESTÁS SOLA :/ AQUÍ ME TIENES",
-  "> LA MÚSICA PONE PALABRAS A LO QUE SIENTO",
-  "> ESTA MÚSICA CUENTA MI HISTORIA",
-  "> ES UN REGALO HECHO DE RECUERDOS",
-  "> QUE CADA CANCIÓN TE ACOMPAÑE Y TE INSPIRE",
-  "> GRACIAS POR SER PARTE DE MI VIDA",
-  "> ¡FELIZ CUMPLEAÑOS!"
+  "> THE END?",
 ];
 
 const CONTENEDOR_TEXTO = document.getElementById("text-container");
