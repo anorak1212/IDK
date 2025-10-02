@@ -1,16 +1,22 @@
 
 let linkMostrado = false;
 
-
 const FECHA_OBJETIVO = new Date(new Date().getFullYear(), 11, 25, 12, 0, 0);
-const INDICE_CONTADOR = 1;
+const INDICE_CONTADOR = 8;
 const ENLACE_SECRETO = "https://goo.su/4yUKk";
 const COLOR_ENLACE = "#00FFFF";
-const VELOCIDAD_TEXTO_LINK = 100;
-const INTERVALO_CONTADOR = 500;
+const VELOCIDAD_TEXTO_LINK = 30;
+const INTERVALO_CONTADOR = 250;
 
 const MENSAJES_INICIALES = [
-  "> THE END?",
+  "> [INICIANDO TRANSMISIÓN]",
+  "> [SECUENCIA BINARIA: FRAGMENTOS]",
+  "> [01001100 01000101 01000101]",
+  "> [00100000 01010000 01000001 01010010 01000101 01010011]",
+  "> [TRANSMISIÓN INTERMITENTE]",
+  "> [https://n9.cl/dhs2c]",
+  "> [FALLA REITERADA = REINICIO]",
+  "> [FIN DE TRANSMISIÓN]"
 ];
 
 const CONTENEDOR_TEXTO = document.getElementById("text-container");
