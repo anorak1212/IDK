@@ -2,20 +2,24 @@
 let linkMostrado = false;
 
 const FECHA_OBJETIVO = new Date(new Date().getFullYear(), 11, 25, 12, 0, 0);
-const INDICE_CONTADOR = 7;
+const INDICE_CONTADOR = 11;
 const ENLACE_SECRETO = "https://goo.su/4yUKk";
-const COLOR_ENLACE = "#00FFFF";
+const COLOR_ENLACE = "#ff073a";
 const VELOCIDAD_TEXTO_LINK = 30;
 const INTERVALO_CONTADOR = 250;
 
 const MENSAJES_INICIALES = [
-    "> YA OSCURECIÓ ESTA TARDE",
-    "> QUÉ CHIMBA VERTE AQUÍ, TÚ QUE CASI NO SALES",
-    "> SI TÚ NO ERES DE NADIE",
-    "> ¿POR QUÉ CUANDO TE HABLO TÚ NO TE QUIERES IR?",
-    "> BEBÉ, NO TE PONGAS A MENTIR",
-    "> QUE YO ME VUELVO UN MONSTRUO Y LA ROMPO",
-    "> [001 - 011 - 110 - 1001]",
+    "> CUANDO TÚ ESTÁS CERCA DE MÍ",
+    "> SE SIENTE BIEN, MI PASADO NO EXISTE",
+    "> SE ME HABÍA OLVIDA'O LO FÁCIL QUE ES REÍR",
+    "> TANTO QUE VOLVÍ OTRA VEZ A TENER MIEDO",
+    "> SUFRIR NO ES NUEVO PA' MÍ, NO",
+    "> AUNQUE SÉ QUE ME CORRO UN RIESGO",
+    "> ESPÉRAME, NO TE ME VAYAS A IR, NO",
+    "> NO SÉ QUÉ VAYA A PASAR CON ESTO QUE TENEMOS",
+    "> DE MÍ, QUIERES MÁS, LO SÉ, PERO NO ME ATREVO",
+    "> ME QUIERO LANZAR EN TU FUEGO",
+    "> ENSÉÑAME A AMAR DE NUEVO",
 ];
 
 const CONTENEDOR_TEXTO = document.getElementById("text-container");
