@@ -2,7 +2,7 @@
 let linkMostrado = false;
 
 const FECHA_OBJETIVO = new Date(new Date().getFullYear(), 11, 25, 12, 0, 0);
-const INDICE_CONTADOR = 2;
+const INDICE_CONTADOR = 8;
 const ENLACE_SECRETO = "https://goo.su/4yUKk";
 const COLOR_ENLACE = "#00FFFF";
 const VELOCIDAD_TEXTO_LINK = 30;
