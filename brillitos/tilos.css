@@ -91,7 +91,7 @@ body::after {
         0 0 2.5px #00FFFF,
         0 0 4px #00FFFF;
     border-right: 1px solid #00FFFF;
-    animation: typing 2s steps(50) forwards, blink 0.8s step-end infinite alternate;
+    animation: typing 1s steps(50) forwards, blink 0.8s step-end infinite alternate;
     animation-fill-mode: forwards;
 }
 
