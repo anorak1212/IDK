@@ -2,7 +2,7 @@
 let linkMostrado = false;
 
 const FECHA_OBJETIVO = new Date(new Date().getFullYear(), 11, 25, 12, 0, 0);
-const INDICE_CONTADOR = 10;
+const INDICE_CONTADOR = 13;
 const ENLACE_SECRETO = "https://goo.su/4yUKk";
 const COLOR_ENLACE = "#00FFFF";
 const VELOCIDAD_TEXTO_LINK = 30;
@@ -10,20 +10,20 @@ const INTERVALO_CONTADOR = 250;
 
 const MENSAJES_INICIALES = 
 [
-    " > LISTEN, BABY",
-    " > AIN'T NO MOUNTAIN HIGH //",
-    " > AIN'T NO VALLEY LOW",
-    " > AIN'T NO RIVER WIDE ENOUGH, BABY ~",
-    " > IF YOU NEED ME, CALL ME",
-    " > NO MATTER WHERE YOU ARE",
-    " > NO MATTER HOW FAR ",
-    " > JUST CALL MY NAME",
-    " > I'LL BE THERE IN A HURRY",
-    " > YOU DON'T HAVE TO WORRY //",
+    " > YO SÉ QUE SOY UN CABRÓN",
+    " > QUE NO MEREZCO TU PERDÓN",
+    " > TE JURO QUE NO ES MI INTENCIÓN",
+    " > PERO SI ESCUCHAS ESTA CANCIÓN",
+    " > TE DESEO LO MEJOR",
+    " > OJALÁ QUE TE OLVIDES DE MÍ",
+    " > YO SÉ QUE FUI LO PEOR",
+    " > Y TÚ MERECES SER FELIZ",
+    " > ME VOY ANTES DE QUE SEA TARDE",
+    " > Y EL CORAZÓN TE DESTROCE OTRA VEZ",
+    " > YA SÉ QUE SOY UN COBARDE",
+    " > SI QUIERES, HAZ QUE NO ME CONOCES",
+    " > ESTÁ BIEN",
 ];
-
-
-
 
 const CONTENEDOR_TEXTO = document.getElementById("text-container");
 
