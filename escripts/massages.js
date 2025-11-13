@@ -2,7 +2,7 @@
 let linkMostrado = false;
 
 const FECHA_OBJETIVO = new Date(new Date().getFullYear(), 11, 25, 12, 0, 0);
-const INDICE_CONTADOR = 13;
+const INDICE_CONTADOR = 4;
 const ENLACE_SECRETO = "https://goo.su/4yUKk";
 const COLOR_ENLACE = "#00FFFF";
 const VELOCIDAD_TEXTO_LINK = 30;
@@ -10,19 +10,10 @@ const INTERVALO_CONTADOR = 250;
 
 const MENSAJES_INICIALES = 
 [
-    " > YO SÉ QUE SOY UN CABRÓN",
-    " > QUE NO MEREZCO TU PERDÓN",
-    " > TE JURO QUE NO ES MI INTENCIÓN",
-    " > PERO SI ESCUCHAS ESTA CANCIÓN",
-    " > TE DESEO LO MEJOR",
-    " > OJALÁ QUE TE OLVIDES DE MÍ",
-    " > YO SÉ QUE FUI LO PEOR",
-    " > Y TÚ MERECES SER FELIZ",
-    " > ME VOY ANTES DE QUE SEA TARDE",
-    " > Y EL CORAZÓN TE DESTROCE OTRA VEZ",
-    " > YA SÉ QUE SOY UN COBARDE",
-    " > SI QUIERES, HAZ QUE NO ME CONOCES",
-    " > ESTÁ BIEN",
+    " > HAVE YOU EVER LOVED?",
+    " > WOULD YOU GO AGAIN?",
+    " > DON'T BE DOWN WHEN IT'S OVER, BABY, YEAH",
+    " > I'LL BE YOUR MAN, OH MAN",
 ];
 
 const CONTENEDOR_TEXTO = document.getElementById("text-container");
