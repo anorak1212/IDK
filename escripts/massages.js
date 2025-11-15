@@ -2,7 +2,7 @@
 let linkMostrado = false;
 
 const FECHA_OBJETIVO = new Date(new Date().getFullYear(), 11, 25, 12, 0, 0);
-const INDICE_CONTADOR = 7;
+const INDICE_CONTADOR = 5;
 const ENLACE_SECRETO = "https://goo.su/4yUKk";
 const COLOR_ENLACE = "#00FFFF";
 const VELOCIDAD_TEXTO_LINK = 30;
@@ -10,14 +10,13 @@ const INTERVALO_CONTADOR = 250;
 
 const MENSAJES_INICIALES = 
 [
-    " > SEE ME DRIVING DOWN THE STREET",
-    " > I'M BORED WITH LOOKING GOOD",
-    " > I GOT BOTH HANDS OFF THE WHEEL",
-    " > THE COPS ARE COMING",
-    " > I LISTEN TO THE MUSIC WITH NO FEAR",
-    " > YOU CAN HEAR IT TOO IF YOU'RE SINCERE",
-    " > 'CAUSE I'M A PUNK ROCKER, YES, I AM",
+    " > I FEEL RIGHT",
+    " > THE MUSIC SOUNDS BETTER WITH YOU",
+    " > LOVE MIGHT",
+    " > BRING US BOTH TOGETHER",
+    " > I FEEL SO GOOD",
 ];
+
 
 const CONTENEDOR_TEXTO = document.getElementById("text-container");
 
