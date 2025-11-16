@@ -2,7 +2,7 @@
 let linkMostrado = false;
 
 const FECHA_OBJETIVO = new Date(new Date().getFullYear(), 11, 25, 12, 0, 0);
-const INDICE_CONTADOR = 5;
+const INDICE_CONTADOR = 11;
 const ENLACE_SECRETO = "https://goo.su/4yUKk";
 const COLOR_ENLACE = "#00FFFF";
 const VELOCIDAD_TEXTO_LINK = 30;
@@ -10,11 +10,17 @@ const INTERVALO_CONTADOR = 250;
 
 const MENSAJES_INICIALES = 
 [
-    " > I FEEL RIGHT",
-    " > THE MUSIC SOUNDS BETTER WITH YOU",
-    " > LOVE MIGHT",
-    " > BRING US BOTH TOGETHER",
-    " > I FEEL SO GOOD",
+    " > ¿SERÁ QUE A OTRO AHORA LE CUENTAS TU DÍA",
+    " > Y LO HACE' REÍR CON LOS CHISTE' QUE TÚ ME HACÍA'?",
+    " > NO TENGO STICKERS NUEVO', MAMI",
+    " > PORQUE YA TÚ NO ME LOS ENVÍA'",
+    " > TE FUISTE CUANDO MÁS YO TE QUERÍA",
+    " > Y YA NADIE SABRÁ LO QUE TÚ Y YO PUDO SER",
+    " > QUÉ TRISTE, NO CONOCERÁ' ESA PARTE DE MÍ",
+    " > QUE YO SÉ QUE TE IBA A GUSTAR",
+    " > Y NADIE SABRÁ LO QUE TÚ Y YO PUDO SER",
+    " > QUÉ TRISTE, NO CONOCERÁS ESA PARTE DE MÍ",
+    " > QUE YO A NADIE LE SUELO MOSTRAR",
 ];
 
 
