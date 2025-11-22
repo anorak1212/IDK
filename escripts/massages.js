@@ -2,7 +2,7 @@
 let linkMostrado = false;
 
 const FECHA_OBJETIVO = new Date(new Date().getFullYear(), 11, 25, 12, 0, 0);
-const INDICE_CONTADOR = 15;
+const INDICE_CONTADOR = 8;
 const ENLACE_SECRETO = "https://goo.su/4yUKk";
 const COLOR_ENLACE = "#00FFFF";
 const VELOCIDAD_TEXTO_LINK = 30;
@@ -10,23 +10,15 @@ const INTERVALO_CONTADOR = 250;
 
 const MENSAJES_INICIALES =
 [
-    " > SIN TU AMOR",
-    " > NO SÉ QUÉ VAYA A SER CONMIGO",
-    " > SIN TU AMOR",
-    " > NO SÉ CUÁL SEA MI DESTINO",
-    " > SIN TU AMOR",
-    " > EL MUNDO CAERÁ SOBRE MÍ",
-    " > BABY",
-    " > QUISIERA VOLVER A AMARTE",
-    " > VOLVER A QUERERTE",
-    " > VOLVER A TENERTE CERCA DE MÍ, GIRL",
-    " > MIS OJOS LLORAN POR TI",
-    " > QUISIERA VOLVER A AMARTE",
-    " > VOLVER A QUERERTE",
-    " > VOLVER A TENERTE CERCA DE MÍ, GIRL",
-    " > MIS OJOS LLORAN POR TI",
+    " > LOVE OF MY LIFE, YOU'VE HURT ME",
+    " > YOU'VE BROKEN MY HEART",
+    " > AND NOW YOU LEAVE ME",
+    " > LOVE OF MY LIFE, CAN'T YOU SEE?",
+    " > BRING IT BACK, BRING IT BACK",
+    " > DON'T TAKE IT AWAY FROM ME",
+    " > BECAUSE YOU DON'T KNOW",
+    " > WHAT IT MEANS TO ME",
 ];
-
 
 const CONTENEDOR_TEXTO = document.getElementById("text-container");
 
