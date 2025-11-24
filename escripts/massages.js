@@ -2,7 +2,7 @@
 let linkMostrado = false;
 
 const FECHA_OBJETIVO = new Date(new Date().getFullYear(), 11, 25, 12, 0, 0);
-const INDICE_CONTADOR = 8;
+const INDICE_CONTADOR = 4;
 const ENLACE_SECRETO = "https://goo.su/4yUKk";
 const COLOR_ENLACE = "#00FFFF";
 const VELOCIDAD_TEXTO_LINK = 30;
@@ -10,14 +10,10 @@ const INTERVALO_CONTADOR = 250;
 
 const MENSAJES_INICIALES =
 [
-    " > LOVE OF MY LIFE, YOU'VE HURT ME",
-    " > YOU'VE BROKEN MY HEART",
-    " > AND NOW YOU LEAVE ME",
-    " > LOVE OF MY LIFE, CAN'T YOU SEE?",
-    " > BRING IT BACK, BRING IT BACK",
-    " > DON'T TAKE IT AWAY FROM ME",
-    " > BECAUSE YOU DON'T KNOW",
-    " > WHAT IT MEANS TO ME",
+    " > I TRIED GOING AGAINST MY OWN SOUL'S WARNING",
+    " > BUT IN THE END, SOMETHING JUST DIDN'T FEEL RIGHT",
+    " > OH, I TRIED DIVING EVEN THOUGH THE SKY WAS STORMING",
+    " > I JUST WANTED TO GET BACK TO WHERE YOU ARE",
 ];
 
 const CONTENEDOR_TEXTO = document.getElementById("text-container");
