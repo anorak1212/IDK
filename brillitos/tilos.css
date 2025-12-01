@@ -83,15 +83,15 @@ body::after {
     width: fit-content;
     overflow: hidden;
     white-space: nowrap;
-    color: #FFD700;
+    color: #fe019a;
     font-size: 16px;
     line-height: 1;
     text-shadow:
-        0 0 2px #FFD700,
-        0 0 5px #FFD700,
-        0 0 8px #FFD700,
-        0 0 15px #FFD700;
-    border-right: 1px solid #FFD700;
+        0 0 2px #fe019a,
+        0 0 5px #fe019a,
+        0 0 8px #fe019a,
+        0 0 15px #fe019a;
+    border-right: 1px solid #fe019a;
     animation: typing 1s steps(50) forwards, blink 0.8s step-end infinite alternate;
     animation-fill-mode: forwards;
 }

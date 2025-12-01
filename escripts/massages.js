@@ -2,7 +2,7 @@
 let linkMostrado = false;
 
 const FECHA_OBJETIVO = new Date(new Date().getFullYear(), 11, 25, 12, 0, 0);
-const INDICE_CONTADOR = 6;
+const INDICE_CONTADOR = 10;
 const ENLACE_SECRETO = "https://goo.su/4yUKk";
 const COLOR_ENLACE = "#00FFFF";
 const VELOCIDAD_TEXTO_LINK = 30;
@@ -10,12 +10,16 @@ const INTERVALO_CONTADOR = 250;
 
 const MENSAJES_INICIALES =
 [
-    " > 'CAUSE IT'S A BITTER SWEET SYMPHONY",
-    " > THIS LIFE",
-    " > TRYING TO MAKE ENDS MEET",
-    " > YOU'RE A SLAVE TO MONEY THEN YOU DIE",
-    " > I'LL TAKE YOU DOWN TO THE ONLY ROAD I'VE EVER BEEN DOWN",
-    " > YOU KNOW THE ONE THAT TAKES YOU TO THE PLACES WHERE ALL THE VEINS MEET",
+    " > CAN YOU HEAR ME CALLING",
+    " > OUT YOUR NAME?",
+    " > YOU KNOW THAT I'M FALLING",
+    " > AND I DON'T KNOW WHAT TO SAY",
+    " > I'LL SPEAK A LITTLE LOUDER",
+    " > I'LL EVEN SHOUT",
+    " > YOU KNOW THAT I'M PROUD",
+    " > AND I CAN'T GET THE WORDS OUT",
+    " > OH I",
+    " > I WANNA BE WITH YOU EVERYWHERE",
 ];
 
 const CONTENEDOR_TEXTO = document.getElementById("text-container");
