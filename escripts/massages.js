@@ -2,7 +2,7 @@
 let linkMostrado = false;
 
 const FECHA_OBJETIVO = new Date(new Date().getFullYear(), 11, 25, 12, 0, 0);
-const INDICE_CONTADOR = 10;
+const INDICE_CONTADOR = 5;
 const ENLACE_SECRETO = "https://goo.su/4yUKk";
 const COLOR_ENLACE = "#00FFFF";
 const VELOCIDAD_TEXTO_LINK = 30;
@@ -10,16 +10,11 @@ const INTERVALO_CONTADOR = 250;
 
 const MENSAJES_INICIALES =
 [
-    " > CAN YOU HEAR ME CALLING",
-    " > OUT YOUR NAME?",
-    " > YOU KNOW THAT I'M FALLING",
-    " > AND I DON'T KNOW WHAT TO SAY",
-    " > I'LL SPEAK A LITTLE LOUDER",
-    " > I'LL EVEN SHOUT",
-    " > YOU KNOW THAT I'M PROUD",
-    " > AND I CAN'T GET THE WORDS OUT",
-    " > OH I",
-    " > I WANNA BE WITH YOU EVERYWHERE",
+    " > MY MOTHER TOLD ME THAT THE WORLD HAS GOT ITS PLANS",
+    " > I WANNA HOLD 'EM 'TIL THEY BURN RIGHT THROUGH MY HANDS",
+    " > DON'T ASK ME QUESTIONS CAUSE I'M TIRED OF CONFESSING",
+    " > AND I KNOW THAT IT'S NOT MUCH TO SAY",
+    " > BUT I SWEAR THAT I'D LIKE TO CHANGE",
 ];
 
 const CONTENEDOR_TEXTO = document.getElementById("text-container");
