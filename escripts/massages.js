@@ -2,7 +2,7 @@
 let linkMostrado = false;
 
 const FECHA_OBJETIVO = new Date(new Date().getFullYear(), 11, 25, 12, 0, 0);
-const INDICE_CONTADOR = 7;
+const INDICE_CONTADOR = 12;
 const ENLACE_SECRETO = "https://goo.su/4yUKk";
 const COLOR_ENLACE = "#00FFFF";
 const VELOCIDAD_TEXTO_LINK = 30;
@@ -10,16 +10,50 @@ const INTERVALO_CONTADOR = 250;
 
 const MENSAJES_INICIALES =
 [
-    " > I WAS CROSSING THE BORDER, TWO OLD FRIEND COINCIDENCE",
-    " > I DON'T WANT ANY OTHER, TWO OLD FRIEND COINCIDENCES",
-    " > WEEKDAY, WEEKDAY, WEEKDAY",
-    " > I DON'T WANNA PLAY ANY OTHER GAME",
-    " > ON A SIMPLER DAY",
-    " > IT'S NOT RIGHT, IT'S NOT TRUE, IT'S NOT RIGHT",
-    " > IT'S NOT HOW WE USED TO DO",
+    " > MORENA MÍA",
+    " > SIETE SON LOS PECADOS COMETIDOS",
+    " > SUMAN OCHO CONMIGO",
+    " > NUEVE LOS QUE TE COBRO",
+    " > MÁS DE DIEZ HE SENTIDO",
+    " > Y POR MI PARTE SOBRA EL ARTE",
+    " > LO QUE ME DAS, DÁMELO, DÁMELO BIEN",
+    " > UN POCO AQUÍ Y UN POCO ¿A QUIÉN?",
+    " > CUANDO TU BOCA, ME TOCA, ME PONE Y ME PROVOCA",
+    " > ME MUERDE Y ME DESTROZA",
+    " > TODA SIEMPRE ES POCA Y MUÉVETE BIÉN",
+    " > QUE NADIE COMO TÚ ME SABE HACER CAFÉ",
 ];
 
-
+/*
+const MENSAJES_INICIALES =
+[
+"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠶⢶⣶⣶⡶⠶⠶⠶⣦⣤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⢷⣄⠀⠀⠈⠉⠻⣶⣄⠀⠀⠀⠀⠀⣀⣀⣤⣤⣄⣀⠀⠀⠀⠀⠀⠀⠀⠀",
+"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣀⡀⠀⠀⠙⢷⣄⠀⠀⠀⠈⠻⣆⢀⣠⡶⠟⠋⠉⠁⠀⠉⠙⠻⢶⣤⡀⠀⠀⠀⠀",
+"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⡶⠟⠛⠋⠉⠉⠉⠉⠙⠛⠻⠾⢿⣷⡀⠀⠀⠀⢿⠟⠉⠀⠀⠀⠀⣀⣠⣤⣤⣤⣤⣭⣿⣦⠀⠀⠀",
+"⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⠟⠁⢀⣀⣤⣤⣤⣤⣤⣤⣤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⣾⣿⣯⣭⣀⣀⠀⠀⠈⠉⠻⢷⡄⠀",
+"⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⣥⡶⠟⠋⠉⠁⠀⠀⢀⣤⡿⠛⠁⠀⠀⠀⣀⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠛⠻⢶⣤⣀⠀⠀⠀",
+"⠀⠀⠀⠀⠀⠀⠀⢠⣿⠟⠁⠀⠀⠀⠀⠀⣠⡾⠛⠁⠀⠀⠀⠀⣀⡿⠋⠉⠉⣿⡾⠛⠻⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠛⣷⡀⠀",
+"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡾⠋⠀⢀⣠⣴⠶⠟⠛⠻⣧⠀⠀⢸⣏⠀⠀⠀⢘⣿⠀⠀⠘⠿⢿⣿⡟⠻⠷⠶⣦⣄⡈⢿⡀",
+"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾⠋⠀⣠⡾⠛⠉⠀⠀⠀⠀⠀⣽⠿⠶⠞⢻⣦⣤⣤⡾⠿⣦⡀⠀⠀⠀⠈⠻⣦⠀⠀⠀⠉⠻⣾⣷",
+"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡾⢁⣴⡿⠋⠀⠀⠀⠀⠀⠀⠀⣼⠏⠀⠀⠀⣿⠁⠈⠀⠀⠀⠈⠻⣦⣄⠀⠀⠀⠸⣧⠀⠀⠀⠀⢻⡗",
+"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⣧⡾⠋⠀⠀⠀⠀⠀⠀⠀⠀⣼⠿⠶⠤⠴⣾⡇⠀⠀⠀⠀⠀⠀⠀⠈⠛⢷⣄⠀⠀⢻⡆⠀⠀⠀⠈⠀",
+"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⡟⠀⠀⠀⢀⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢷⣄⠘⣷⠀⠀⠀⠀⠀",
+"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⣅⣀⣀⣀⣼⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⠀⠀⠀⠀⠀",
+"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⡏⠉⠉⠉⠉⣽⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢿⠀⠀⠀⠀⠀",
+"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⠇⠀⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠷⠶⠶⠶⠾⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡟⠀⠀⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇⠀⠀⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡷⠶⠶⠶⠶⠶⢿⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣤⣤⡴⠶⠶⠶⣿⡇⠀⠀⠀⠀⠀⠀⢻⣶⠶⠶⢦⣤⣤⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+"⠀⠀⠀⠀⠀⠀⢀⣠⣴⠶⠟⠛⠉⠉⠀⠀⠀⠀⠀⠀⠹⣧⣄⣀⣀⣀⣀⣀⣠⣽⠇⠀⠀⠀⠀⠉⠉⠛⠻⠷⣦⣤⣀⠀⠀⠀⠀⠀⠀⠀",
+"⠀⠀⠀⣠⣴⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠻⢶⣄⠀⠀⠀⠀",
+"⠀⢠⡾⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢷⡄⠀⠀",
+"⢀⣿⣁⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣿⡄⠀",
+"⠈⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠁⠀",
+];
+*/
 
 const CONTENEDOR_TEXTO = document.getElementById("text-container");
 
