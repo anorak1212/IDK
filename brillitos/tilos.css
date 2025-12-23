@@ -97,16 +97,16 @@ body::after {
     width: fit-content;
     overflow: hidden;
     white-space: nowrap;
-    color: #FFD700;
+    color: #00FFFF;
     font-size: 16px;
     line-height: 1;
     text-shadow:
-        0 0 2px #FFD700,
-        0 0 5px #FFD700,
-        0 0 8px #FFD700,
-        0 0 15px #FFD700;
-    border-right: 1px solid #FFD700;
-    animation: typing 1s steps(50) forwards, blink 0.8s step-end infinite alternate; /* ¡CAMBIA '1s' a '0.5s'! */
+        0 0 2px #00FFFF,
+        0 0 5px #00FFFF,
+        0 0 8px #00FFFF,
+        0 0 15px #00FFFF;
+    border-right: 1px solid #00FFFF;
+    animation: typing 0.1s steps(50) forwards, blink 0.8s step-end infinite alternate; /* ¡CAMBIA '1s' a '0.5s'! */
     animation-fill-mode: forwards;
 }
 
@@ -145,7 +145,7 @@ a.line.typing-complete {
     display: inline-block;
     width: 10px;
     height: 18px;
-    background-color: #FFD700;
+    background-color: #00FFFF;
     margin-left: 4px;
     animation: blink-cursor 0.6s infinite;
 }
