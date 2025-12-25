@@ -1,7 +1,7 @@
 
 let linkMostrado = false;
 
-const FECHA_OBJETIVO = new Date(new Date().getFullYear(), 11, 25, 17, 0, 0);
+const FECHA_OBJETIVO = new Date(new Date().getFullYear(), 11, 25, 18, 0, 0);
 const INDICE_CONTADOR = 17;
 const ENLACE_SECRETO = "https://n9.cl/zxymap";
 const COLOR_ENLACE = "#00FFFF";
