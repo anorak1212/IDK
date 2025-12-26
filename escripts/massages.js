@@ -1,7 +1,6 @@
-
 let linkMostrado = false;
 
-const FECHA_OBJETIVO = new Date(new Date().getFullYear(), 11, 25, 20, 0, 0);
+const FECHA_OBJETIVO = new Date(new Date().getFullYear(), 11, 25, 23, 11, 0);
 const INDICE_CONTADOR = 15;
 const ENLACE_SECRETO = "https://n9.cl/40a8o";
 const COLOR_ENLACE = "#00FFFF";
