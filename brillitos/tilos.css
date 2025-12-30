@@ -26,28 +26,14 @@ body::after {
     width: 100%;
     height: 100%;
     background: repeating-linear-gradient(to bottom,
-            rgba(255, 255, 255, 0.02) 2,
-            rgba(255, 255, 255, 0.02) 4px,
-            rgba(0, 0, 0, 0) 2px,
-            rgba(0, 0, 0, 0) 40%); /* CAMBIAR LA LINEA NEGRA 2025*/
+            rgba(255, 255, 255, 0.02) 0,
+            rgba(255, 255, 255, 0.02) 0px,
+            rgba(0, 0, 0, 0) 0px,
+            rgba(0, 0, 0, 0) 0%); /* CAMBIAR LA LINEA NEGRA 2025*/
     opacity: 0.1;
     mix-blend-mode: multiply;
     z-index: 9999;
 }
-
-/*
-/*body::after {*/
-    /*content: "";*/
-    /*position: absolute;*/
-    /* ... otras propiedades ... */
-    /*background: repeating-linear-gradient(to bottom,*/
-            /*rgba(255, 255, 255, 0.02) 0,*/
-          /*  rgba(255, 255, 255, 0.02) 1px, */
-       /*     rgba(0, 0, 0, 0) 1px,*/         
-     /*       rgba(0, 0, 0, 0) 2px); */  
-    /*opacity: 0.1;*/
-    /* ... otras propiedades ... */
-/*}*/
 
 .container {
     position: relative;
@@ -73,7 +59,7 @@ body::after {
 #text-container {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    /*gap: 16px;*/
     padding-right: 20px;
 }
 
@@ -205,13 +191,13 @@ body.access-final {
 
 /* MENSAJE ROJO*/
 .line.neon-rojo {
-    color: #ff073a;
+    color: #FBFFFF;
     text-shadow:
-        0 0 2px #ff073a,
-        0 0 5px #ff073a,
-        0 0 10px #ff073a,
-        0 0 20px #ff073a;
-    border-right: 1px solid #ff073a;
+        0 0 2px #FBFFFF,
+        0 0 5px #FBFFFF,
+        0 0 10px #FBFFFF,
+        0 0 20px #FBFFFF;
+    border-right: 1px solid #FBFFFF;
 }
 
 /* === Números parpadeantes estilo despertador === */
@@ -332,4 +318,46 @@ body.blackout {
   animation-timing-function: steps(50) !important;
   /* Reusa el mismo keyframe “typing”:
      from { width: 0 } to { width: 100% } */
+}
+
+/* --- Palmera animada (no bloquea clicks) --- */
+.palm-wrapper {
+  position: fixed;
+  bottom: 10px;      /* ajusta posición */
+  right: 10px;
+  width: 160px;      /* escala */
+  height: auto;
+  z-index: 50;       /* sobre fondo, por debajo de overlays si es necesario */
+  pointer-events: none; /* no interfiera con enlaces/scroll */
+  user-select: none;
+  transform-origin: center bottom;
+}
+
+/* SVG responsivo */
+.palm {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform-origin: 50% 90%;
+  will-change: transform;
+  animation: palm-sway 3.8s ease-in-out infinite;
+}
+
+/* movimiento de balanceo */
+@keyframes palm-sway {
+  0%   { transform: rotate(0deg) translateY(0); }
+  25%  { transform: rotate(2.2deg) translateY(-1px); }
+  50%  { transform: rotate(0deg) translateY(0); }
+  75%  { transform: rotate(-2.2deg) translateY(1px); }
+  100% { transform: rotate(0deg) translateY(0); }
+}
+
+/* reducir animación para movilidad reducida */
+@media (prefers-reduced-motion: reduce) {
+  .palm, .palm-wrapper { animation: none !important; transform: none !important; }
+}
+
+/* adaptaciones móviles */
+@media (max-width: 600px) {
+  .palm-wrapper { width: 110px; bottom: 6px; right: 6px; }
 }
