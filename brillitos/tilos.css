@@ -59,7 +59,7 @@ body::after {
 #text-container {
     display: flex;
     flex-direction: column;
-    /*gap: 16px;*/
+    gap: 15px;
     padding-right: 20px;
 }
 
@@ -83,15 +83,15 @@ body::after {
     width: fit-content;
     overflow: hidden;
     white-space: nowrap;
-    color: #FBFFFF;
+    color: #fe019a;
     font-size: 16px;
     line-height: 1;
     text-shadow:
-        0 0 2px #FBFFFF,
-        0 0 5px #FBFFFF,
-        0 0 8px #FBFFFF,
-        0 0 15px #FBFFFF;
-    border-right: 1px solid #FBFFFF;
+        0 0 2px #fe019a,
+        0 0 5px #fe019a,
+        0 0 8px #fe019a,
+        0 0 15px #fe019a;
+    border-right: 1px solid #fe019a;
     animation: typing 0.1s steps(50) forwards, blink 0.8s step-end infinite alternate; /* ¡CAMBIA '1s' a '0.5s'! */
     animation-fill-mode: forwards;
 }
@@ -191,13 +191,13 @@ body.access-final {
 
 /* MENSAJE ROJO*/
 .line.neon-rojo {
-    color: #FBFFFF;
+    color: #00FFFF;
     text-shadow:
-        0 0 2px #FBFFFF,
-        0 0 5px #FBFFFF,
-        0 0 10px #FBFFFF,
-        0 0 20px #FBFFFF;
-    border-right: 1px solid #FBFFFF;
+        0 0 2px #00FFFF,
+        0 0 5px #00FFFF,
+        0 0 10px #00FFFF,
+        0 0 20px #00FFFF;
+    border-right: 1px solid #00FFFF;
 }
 
 /* === Números parpadeantes estilo despertador === */
