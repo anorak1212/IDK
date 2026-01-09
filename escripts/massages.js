@@ -4,7 +4,7 @@ const FECHA_OBJETIVO = new Date(2026, 6, 26, 11, 11, 0);
 const INDICE_CONTADOR = 5;
 const ENLACE_SECRETO = "https://n9.cl/40a8o";
 const COLOR_ENLACE = "#00FFFF";
-const VELOCIDAD_TEXTO_LINK = 30;
+const VELOCIDAD_TEXTO_LINK = 1;
 const INTERVALO_CONTADOR = 250;
 
 const MENSAJES_INICIALES =
