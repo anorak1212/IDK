@@ -1,7 +1,7 @@
 let linkMostrado = false;
 
 const FECHA_OBJETIVO = new Date(2026, 6, 26, 11, 11, 0);
-const INDICE_CONTADOR = 11;
+const INDICE_CONTADOR = 12;
 const ENLACE_SECRETO = "https://n9.cl/40a8o";
 const COLOR_ENLACE = "#00FFFF";
 const VELOCIDAD_TEXTO_LINK = 1;
@@ -18,6 +18,7 @@ const MENSAJES_INICIALES = [
   "> THOUGHT I'D FORGET",
   "> TWO WEEKS WITHOUT YOU AND I",
   "> STILL HAVEN'T GOTTEN OVER YOU YET",
+  "> https://n9.cl/3izf8",
   " ",
 ];
 
