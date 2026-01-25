@@ -18,7 +18,7 @@ const MENSAJES_INICIALES = [
   "> THOUGHT I'D FORGET",
   "> TWO WEEKS WITHOUT YOU AND I",
   "> STILL HAVEN'T GOTTEN OVER YOU YET",
-  "> https://n9.cl/3izf8",
+  "> https://goo.su/LhAziwd",
   " ",
 ];
 
