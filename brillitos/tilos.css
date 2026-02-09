@@ -1,9 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
+/* Añade esto al principio de tu CSS */
+@font-face {
+    font-family: 'DtMF-Font';
+    src: url('brillitos/DtMF Font - @nereangs.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
     padding: 0;
     margin: 0;
-    font-family: 'Inconsolata', monospace;
+    font-family: 'DtMF-Font', 'Inconsolata', monospace; /* Cambiado aquí */
     box-sizing: border-box;
 }
 
@@ -83,17 +91,22 @@ body::after {
     width: fit-content;
     overflow: hidden;
     white-space: nowrap;
-    color: #fe019a;
+    color: #0FFF50;
     font-size: 16px;
     line-height: 1;
     text-shadow:
-        0 0 2px #fe019a,
-        0 0 5px #fe019a,
-        0 0 8px #fe019a,
-        0 0 15px #fe019a;
-    border-right: 1px solid #fe019a;
+        0 0 2px #0FFF50,
+        0 0 5px #0FFF50,
+        0 0 8px #0FFF50,
+        0 0 15px #0FFF50;
+    border-right: 1px solid #0FFF50;
     animation: typing 0.1s steps(50) forwards, blink 0.8s step-end infinite alternate; /* ¡CAMBIA '1s' a '0.5s'! */
     animation-fill-mode: forwards;
+    font-size: 10; 
+    letter-spacing: 1px; 
+    letter-spacing: 1px; 
+    transform: scaleY(1.2);
+    display: inline-block;
 }
 
 .line.typing-complete {
